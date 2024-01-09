@@ -10,7 +10,7 @@
     <title>Culinary</title>
 </head>
 
-<body class="m-0 overflow-hidden" style="background-image: url('images/background/background_2.jpg'); min-height: 100vh;">
+<body class="m-0 overflow-hidden">
     <!--HEADER-->
     <header class="col-12 position-relative w-100 top-0 m-0 start-0 d-flex justify-content-between overflow-hidden"
         style="background-color: #FFCF56" id="navigation">
@@ -19,9 +19,12 @@
         </div>
         <div class="pe-md-5 m-3 d-flex align-items-center">
             <div class="d-lg-inline d-none">
-                <button class="btn btn-success mx-2 btn-lg" type="button" id="obekti"onclick="changeObekti()">Обекти</button>
-                <button class="btn btn-success mx-2 btn-lg" type="button" id="karta" onclick="changeKarta()">Карта</button>
-                <button class="btn btn-success mx-2 btn-lg" type="button" id="registraciq"onclick="changeRegistraciq()">Регистрация
+                <button class="btn btn-success mx-2 btn-lg" type="button" id="obekti"
+                    onclick="changeObekti()">Обекти</button>
+                <button class="btn btn-success mx-2 btn-lg" type="button" id="karta"
+                    onclick="changeKarta()">Карта</button>
+                <button class="btn btn-success mx-2 btn-lg" type="button" id="registraciq"
+                    onclick="changeRegistraciq()">Регистрация
                     <i class="bi bi-pencil-square"></i>
                 </button>
                 <button class="btn btn-success mx-2 btn-lg" type="button" id="vhod" onclick="changeVhod()">Вход
@@ -39,7 +42,42 @@
                 <i class="bi bi-grid"></i>
             </button>-->
         </div>
+
     </header>
+    <div>
+        <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators ">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+
+            <div class="col-md-4 carousel-inner">
+                <div class="carousel-item active" style=" height: 480px;">
+                    <img src="images/Carousel/1.png" class="d-block w-100" style =" height: 100%; object-fit: cover;">
+                </div>
+                <div class="carousel-item" style="height: 480px;">
+                    <img src="images/Carousel/2.png" class="d-block w-100" style ="height: 100%; object-fit: cover;">
+                </div>
+                <div class="carousel-item" style="height: 480px;">
+                    <img src="images/Carousel/3.png" class="d-block w-100" style ="height: 100%; object-fit: cover;">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
 
 </body>
 
