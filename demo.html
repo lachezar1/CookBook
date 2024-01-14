@@ -1,38 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        /* Custom CSS for the carousel */
-        .carousel {
-            max-height: 400px;
-            /* Set the maximum height for the carousel */
-        }
-
-        .carousel-item img {
-            height: 100%;
-            /* Set the height of the image to 100% of the parent carousel item */
-            object-fit: cover;
-            /* Ensure the image covers the entire container, maintaining aspect ratio */
-        }
-    </style>
-    <title>Bootstrap Carousel with Image Height</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Two Stretching Divs</title>
 </head>
-
 <body>
-    <div class="card text-bg-dark d-none d-lg-block" style="border-radius: 0;" id="banner"> <!-- add d-lg-block-->
-        <img src="images/Carousel/1.7.png" class="card-img" alt="" style=" background-size: cover;  height: 60vh;">
-        <div class="card-img-overlay d-flex justify-content-center pt-5">
 
-        </div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="bg-primary text-white p-3">Content of div 1</div>
     </div>
+    <div class="col">
+      <div class="bg-secondary text-white p-3">Content of div 2</div>
+    </div>
+  </div>
+</div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
 </html>
