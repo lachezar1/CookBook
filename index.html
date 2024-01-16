@@ -158,21 +158,34 @@
             font-size: 14px
         }
 
-        .social-icons a.facebook:hover {
+        .social-icons a.search:hover {
+            background-color: #10be53
+        }
+
+        .social-icons a.post:hover {
+            background-color: #8d13c5
+        }
+
+        .social-icons a.register:hover {
             background-color: #1550cf
         }
 
-        .social-icons a.twitter:hover {
+        .social-icons a.log:hover {
             background-color: #1a7ea2
         }
 
-        .social-icons a.linkedin:hover {
+        .social-icons a.fave:hover {
             background-color: #a90c0c
         }
 
-        .social-icons a.dribbble:hover {
+        .social-icons a.acounts:hover {
             background-color: #ea4c89
         }
+
+        .social-icons a.back_to_top:hover {
+            background-color: #086615
+        }
+
 
         @media (max-width:767px) {
             .social-icons li.title {
@@ -193,10 +206,12 @@
         </div>
         <div class="pe-md-5 m-3 d-flex align-items-center">
             <div class="d-lg-inline d-none">
-                <button class="btn btn-success mx-2 btn-lg" type="button" id="obekti"
-                    onclick="changeObekti()">Обекти</button>
-                <button class="btn btn-success mx-2 btn-lg" type="button" id="karta"
-                    onclick="changeKarta()">Карта</button>
+                <button class="btn btn-success mx-2 btn-lg" type="button" id="obekti" onclick="changeObekti()">Търсачка
+                    <i class="bi bi-search"></i>
+                </button>
+                <button class="btn btn-success mx-2 btn-lg" type="button" id="karta" onclick="changeKarta()">Запиши
+                    <i class="bi bi-pen"></i>
+                </button>
                 <button class="btn btn-success mx-2 btn-lg" type="button" id="registraciq"
                     onclick="changeRegistraciq()">Регистрация
                     <i class="bi bi-pencil-square"></i>
@@ -211,13 +226,45 @@
                     <i class="bi bi-person"></i>
                 </button>
             </div>
-            <!--<button class="btn btn-success mx-2 btn-lg" type="button" data-bs-toggle="offcanvas"
+            <button class="btn btn-success mx-2 btn-lg" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-                <i class="bi bi-grid"></i>
-            </button>-->
+                <i class="bi bi-justify"></i>
+            </button>
         </div>
 
     </header>
+    <!--SIDE MENU-->
+    <div class="offcanvas offcanvas-end overflow-auto" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+        aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header p-0">
+            <img class="d-none d-md-block img-fluid" src="images/logo/3.png" alt="logo" class="my-0 overflow-hidden p-0"
+                data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+                aria-controls="offcanvasWithBothOptions">
+        </div>
+        <div class="offcanvas-body d-flex flex-column" style="background-color:#FFCF56 ;">
+            <button type="button" class="btn btn-lg btn-close d-md-none" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+            <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="obektiNav"
+                onclick="changeObekti()" data-bs-dismiss="offcanvas" aria-label="Close">Търсачка
+                <i class="bi bi-search"></i></button>
+            <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="kartaNav"
+                onclick="changeKarta()" data-bs-dismiss="offcanvas" aria-label="Close">Запиши
+                <i class="bi bi-pen"></i></button>
+            <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="registraciqNav"
+                onclick="changeRegistraciq()" data-bs-dismiss="offcanvas" aria-label="Close">Регистрация
+                <i class="bi bi-pencil-square"></i></button>
+            <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="vhodNav"
+                onclick="changeVhod()" data-bs-dismiss="offcanvas" aria-label="Close">Вход
+                <i class="bi bi-key"></i></button>
+            <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="aboutNav"
+                onclick="changeZanas()" data-bs-dismiss="offcanvas" aria-label="Close">Любими
+                <i class="bi bi-bookmark"></i></button>
+            <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="aboutNav"
+                onclick="changeZanas()" data-bs-dismiss="offcanvas" aria-label="Close">Акаунт
+                <i class="bi bi-person"></i>
+        </div>
+    </div>
+    <!--banner-->
     <div class="container overflow-auto pb-5">
         <div class="row no-gutters">
             <div class="col no-margin fit">
@@ -230,28 +277,33 @@
     </div>
 
     <!--Top3-->
-    <div class="row row-cols-1 row-cols-md-3 g-4 pb-5">
-        <div class="col">
+    <div class="vw-100 d-flex align-items-center p-3 justify-content-center" style="background-color: #FFCF56;"
+        id="top3Text">
+        <h1 class="break-word text-center">Най-посещавани рецепти</h1>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 pb-5 pt-5">
+        <div class="col px-4">
             <div class="card h-100">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body" style="background-color: #FFCF56;">
-                    <h5 class="card-title">Card title</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body" style="background-color: #A0E8AF;">
-                    <h5 class="card-title">Card title</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="..." class="card-img-top" alt="...">
+                <img src="images/recepi/musaka.jpg" class="card-img-top" alt="...">
                 <div class="card-body" style="background-color: #EDEAD0;">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">Мусака</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col  px-4">
+            <div class="card h-100">
+                <img src="images/recepi/garash.jpg" class="card-img-top" alt="...">
+                <div class="card-body" style="background-color: #EDEAD0;">
+                    <h5 class="card-title">Торта гараш</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col px-4">
+            <div class="card h-100">
+                <img src="images/recepi/sote.jpg" class="card-img-top" alt="...">
+                <div class="card-body" style="background-color: #EDEAD0;">
+                    <h5 class="card-title">Картофи соте</h5>
                 </div>
             </div>
         </div>
@@ -275,25 +327,16 @@
                 </div>
 
                 <div class="col-xs-6 col-md-3">
-                    <h6>Categories</h6>
-                    <ul class="footer-links">
-                        <li><a href="">C</a></li>
-                        <li><a href="">UI Design</a></li>
-                        <li><a href="">PHP</a></li>
-                        <li><a href="">Java</a></li>
-                        <li><a href="">Android</a></li>
-                        <li><a href="">Templates</a></li>
-                    </ul>
                 </div>
 
                 <div class="col-xs-6 col-md-3">
-                    <h6>Quick Links</h6>
+                    <h6>Категории</h6>
                     <ul class="footer-links">
-                        <li><a href="">About Us</a></li>
-                        <li><a href="">Contact Us</a></li>
-                        <li><a href="">Contribute</a></li>
-                        <li><a href="">Privacy Policy</a></li>
-                        <li><a href="">Sitemap</a></li>
+                        <li><a href="">Закуски</a></li>
+                        <li><a href="">Основни</a></li>
+                        <li><a href="">Десерти</a></li>
+                        <li><a href="">Напитки</a></li>
+                        <li><a href="">Салати</a></li>
                     </ul>
                 </div>
             </div>
@@ -301,16 +344,22 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-sm-6 col-xs-12">
+                <div class="col-md-2 col-sm-6 col-xs-12">
                 </div>
 
-                <div class="col-md-4 col-sm-6 col-xs-12 pb-5">
+                <div class="col-md-6 col-sm-6 col-xs-12 pb-5">
                     <ul class="social-icons">
-                        <li><a class="facebook" href="#"><i class="bi bi-pencil-square"></i></a></li>
-                        <li><a class="twitter" href="#"><i class="bi bi-key"></i></a></li>
-                        <li><a class="dribbble" href="#"><i class="bi bi-bookmark"></i></a></li>
-                        <li><a class="linkedin" href="#"><i class="bi bi-person"></i></a></li>
+                        <li><a class="search" href="#"><i class="bi bi-search"></i></a></li>
+                        <li><a class="post" href="#"><i class="bi bi-pen"></i></a></li>
+                        <li><a class="register" href="#"><i class="bi bi-pencil-square"></i></a></li>
+                        <li><a class="log" href="#"><i class="bi bi-key"></i></a></li>
+                        <li><a class="fave" href="#"><i class="bi bi-bookmark"></i></a></li>
+                        <li><a class="acounts" href="#"><i class="bi bi-person"></i></a></li>
+                        <li><a class="back_to_top" href="#"><i class="bi bi-arrow-up"></i></a></li>
                     </ul>
+                </div>
+
+                <div class="col-md-5 col-sm-6 col-xs-12">
                 </div>
             </div>
         </div>
