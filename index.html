@@ -16,66 +16,9 @@
             padding: 0;
         }
 
-        .site-footer {
-            background-color: #FFCF56;
-            padding: 45px 0 20px;
-            font-size: 15px;
-            line-height: 24px;
-            color: #000000;
-        }
-
-        .site-footer hr {
-            border-top-color: #bbb;
-            opacity: 0.5
-        }
-
-        .site-footer hr.small {
-            margin: 20px 0
-        }
-
-        .site-footer h6 {
-            color: #000000;
-            font-size: 16px;
-            text-transform: uppercase;
-            margin-top: 5px;
-            letter-spacing: 2px
-        }
-
-        .site-footer a {
-            color: #737373;
-        }
-
         .site-footer a:hover {
             color: #3366cc;
             text-decoration: none;
-        }
-
-        .footer-links {
-            padding-left: 0;
-            list-style: none
-        }
-
-        .footer-links li {
-            display: block
-        }
-
-        .footer-links a {
-            color: #000000
-        }
-
-        .footer-links a:active,/*not neccecry*/
-        .footer-links a:focus,
-        .footer-links a:hover {
-            color: #3366cc;
-            text-decoration: none;
-        }
-
-        .footer-links.inline li {
-            display: inline-block
-        }
-
-        .site-footer .social-icons {
-            text-align: right
         }
 
         .site-footer .social-icons a {
@@ -86,10 +29,6 @@
             margin-right: 0;
             border-radius: 100%;
             background-color: #3AB795
-        }
-
-        .copyright-text {
-            margin: 0
         }
 
         @media (max-width:991px) {
@@ -107,25 +46,6 @@
             .site-footer .social-icons {
                 text-align: center
             }
-        }
-
-        .social-icons {
-            padding-left: 0;
-            margin-bottom: 0;
-            list-style: none
-        }
-
-        .social-icons li {
-            display: inline-block;
-            margin-bottom: 4px
-        }
-
-        .social-icons li.title {
-            margin-right: 15px;
-            text-transform: uppercase;
-            color: #3AB795;
-            font-weight: 700;
-            font-size: 13px
         }
 
         .social-icons a {
@@ -212,7 +132,8 @@
                 <button class="btn btn-success mx-2 btn-lg" type="button" id="karta" onclick="changeKarta()">Запиши
                     <i class="bi bi-pen"></i>
                 </button>
-                <button class="btn btn-success mx-2 btn-lg" type="button" id="vhod" onclick="changeVhod()">Вход / Регистрация
+                <button class="btn btn-success mx-2 btn-lg" type="button" id="vhod" onclick="changeVhod()">Вход /
+                    Регистрация
                     <i class="bi bi-key"></i>
                 </button>
                 <button class=" btn btn-success mx-2 btn-lg" type="button" id="about" onclick="changeZanas()">Любими
@@ -308,28 +229,37 @@
         </div>
     </div>
     <!--footer -->
-    <footer class="site-footer pt-5">
+    <footer class="site-footer pt-5"
+        style="background-color: #FFCF56; padding: 45px 0 20px; font-size: 15px; line-height: 24px; color: #000000;">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
-                    <h6>За нас</h6>
-                    <p class="text-justify">Добре дошли в Culinary - вашият уебсайт за рецепти, където вкусът е изкуство! 
-                        Тук ще откриете най-вкусните рецепти, които може да приготвите както за всекидневие, така и за празнични поводи. 
-                        От лесни за приготвяне ястия за начинаещи до изискани десерти - предоставяме ви вдъхновение за кулинарни творения. 
-                        Присъединете се към нашата общност и споделяйте своите собствени кулинарни шедьоври с останалите любители на гурмето!</p>
+                    <h6
+                        style="color: #000000; font-size: 16px; text-transform: uppercase; margin-top: 5px; letter-spacing: 2px">
+                        За нас</h6>
+                    <p class="text-justify">Добре дошли в Culinary - вашият уебсайт за рецепти, където вкусът е
+                        изкуство!
+                        Тук ще откриете най-вкусните рецепти, които може да приготвите както за всекидневие, така и за
+                        празнични поводи.
+                        От лесни за приготвяне ястия за начинаещи до изискани десерти - предоставяме ви вдъхновение за
+                        кулинарни творения.
+                        Присъединете се към нашата общност и споделяйте своите собствени кулинарни шедьоври с останалите
+                        любители на гурмето!</p>
                 </div>
 
                 <div class="col-xs-6 col-md-3">
                 </div>
 
                 <div class="col-xs-6 col-md-3">
-                    <h6>Категории</h6>
-                    <ul class="footer-links">
-                        <li><a href="">Закуски</a></li>
-                        <li><a href="">Основни</a></li>
-                        <li><a href="">Десерти</a></li>
-                        <li><a href="">Напитки</a></li>
-                        <li><a href="">Салати</a></li>
+                    <h6
+                        style="color: #000000; font-size: 16px; text-transform: uppercase; margin-top: 5px; letter-spacing: 2px">
+                        Категории</h6>
+                    <ul class="footer-links" style="padding-left: 0; list-style: none">
+                        <li><a href="" style="color: #000000">Закуски</a></li>
+                        <li><a href="" style="color: #000000">Основни</a></li>
+                        <li><a href="" style="color: #000000">Десерти</a></li>
+                        <li><a href="" style="color: #000000">Напитки</a></li>
+                        <li><a href="" style="color: #000000">Салати</a></li>
                     </ul>
                 </div>
             </div>
@@ -341,13 +271,20 @@
                 </div>
 
                 <div class="col-md-6 col-sm-6 col-xs-12 pb-5">
-                    <ul class="social-icons">
-                        <li><a class="search" href="#"><i class="bi bi-search"></i></a></li>
-                        <li><a class="post" href="#"><i class="bi bi-pen"></i></a></li>
-                        <li><a class="log" href="#"><i class="bi bi-key"></i></a></li>
-                        <li><a class="fave" href="#"><i class="bi bi-bookmark"></i></a></li>
-                        <li><a class="acounts" href="#"><i class="bi bi-person"></i></a></li>
-                        <li><a class="back_to_top" href="#"><i class="bi bi-arrow-up"></i></a></li>
+                    <ul class="social-icons"
+                        style="text-align: right; padding-left: 0;margin-bottom: 0;list-style: none">
+                        <li style="display: inline-block; margin-bottom: 4px"><a class="search" href="#"><i
+                                    class="bi bi-search"></i></a></li>
+                        <li style="display: inline-block; margin-bottom: 4px"><a class="post" href="#"><i
+                                    class="bi bi-pen"></i></a></li>
+                        <li style="display: inline-block; margin-bottom: 4px"><a class="log" href="#"><i
+                                    class="bi bi-key"></i></a></li>
+                        <li style="display: inline-block; margin-bottom: 4px"><a class="fave" href="#"><i
+                                    class="bi bi-bookmark"></i></a></li>
+                        <li style="display: inline-block; margin-bottom: 4px"><a class="acounts" href="#"><i
+                                    class="bi bi-person"></i></a></li>
+                        <li style="display: inline-block; margin-bottom: 4px"><a class="back_to_top" href="#"><i
+                                    class="bi bi-arrow-up"></i></a></li>
                     </ul>
                 </div>
 
