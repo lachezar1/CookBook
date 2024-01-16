@@ -63,7 +63,7 @@
             color: #000000
         }
 
-        .footer-links a:active,
+        .footer-links a:active,/*not neccecry*/
         .footer-links a:focus,
         .footer-links a:hover {
             color: #3366cc;
@@ -197,7 +197,7 @@
     </style>
 </head>
 
-<body class="m-0 overflow-hidden overflow-y-auto" style="background-color: #3AB795; min-height: 100vh;">
+<body class="m-0 overflow-hidden overflow-y-auto" style="background-color: #EDEAD0; min-height: 100vh;">
     <!--HEADER-->
     <header class="col-12 position-relative w-100 top-0 m-0 start-0 d-flex justify-content-between overflow-hidden"
         style="background-color: #FFCF56" id="navigation">
@@ -212,11 +212,7 @@
                 <button class="btn btn-success mx-2 btn-lg" type="button" id="karta" onclick="changeKarta()">Запиши
                     <i class="bi bi-pen"></i>
                 </button>
-                <button class="btn btn-success mx-2 btn-lg" type="button" id="registraciq"
-                    onclick="changeRegistraciq()">Регистрация
-                    <i class="bi bi-pencil-square"></i>
-                </button>
-                <button class="btn btn-success mx-2 btn-lg" type="button" id="vhod" onclick="changeVhod()">Вход
+                <button class="btn btn-success mx-2 btn-lg" type="button" id="vhod" onclick="changeVhod()">Вход / Регистрация
                     <i class="bi bi-key"></i>
                 </button>
                 <button class=" btn btn-success mx-2 btn-lg" type="button" id="about" onclick="changeZanas()">Любими
@@ -237,11 +233,11 @@
     <div class="offcanvas offcanvas-end overflow-auto" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
         aria-labelledby="offcanvasWithBothOptionsLabel">
         <div class="offcanvas-header p-0">
-            <img class="d-none d-md-block img-fluid" src="images/logo/3.png" alt="logo" class="my-0 overflow-hidden p-0"
+            <img class="d-none d-md-block img-fluid" src="images/logo/4.png" alt="logo" class="my-0 overflow-hidden p-0"
                 data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
                 aria-controls="offcanvasWithBothOptions">
         </div>
-        <div class="offcanvas-body d-flex flex-column" style="background-color:#FFCF56 ;">
+        <div class="offcanvas-body d-flex flex-column" style="background-color:#ffff ;">
             <button type="button" class="btn btn-lg btn-close d-md-none" data-bs-dismiss="offcanvas"
                 aria-label="Close"></button>
             <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="obektiNav"
@@ -250,11 +246,8 @@
             <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="kartaNav"
                 onclick="changeKarta()" data-bs-dismiss="offcanvas" aria-label="Close">Запиши
                 <i class="bi bi-pen"></i></button>
-            <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="registraciqNav"
-                onclick="changeRegistraciq()" data-bs-dismiss="offcanvas" aria-label="Close">Регистрация
-                <i class="bi bi-pencil-square"></i></button>
             <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="vhodNav"
-                onclick="changeVhod()" data-bs-dismiss="offcanvas" aria-label="Close">Вход
+                onclick="changeVhod()" data-bs-dismiss="offcanvas" aria-label="Close">Вход / Регистрация
                 <i class="bi bi-key"></i></button>
             <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="aboutNav"
                 onclick="changeZanas()" data-bs-dismiss="offcanvas" aria-label="Close">Любими
@@ -277,32 +270,38 @@
     </div>
 
     <!--Top3-->
-    <div class="vw-100 d-flex align-items-center p-3 justify-content-center" style="background-color: #FFCF56;"
-        id="top3Text">
-        <h1 class="break-word text-center">Най-посещавани рецепти</h1>
+    <div class="vw-100 d-flex align-items-center p-3 justify-content-center border border-warning"
+        style="background-color: #FFCF56;" id="top3Text">
+        <h1 class="break-word text-center">Най-нови рецепти</h1>
     </div>
 
     <div class="row row-cols-1 row-cols-md-3 g-4 pb-5 pt-5">
         <div class="col px-4">
-            <div class="card h-100">
+            <div class="card h-100 border border-success-subtle"
+                onmouseover=" this.style.boxShadow = '0 .5rem 1rem #1E4847'; this.style.borderStyle = 'hidden'; this.style.transitionDuration = '0.75s';"
+                onmouseleave="this.style.boxShadow = 'none'; this.style.borderStyle = 'solid'; this.style.transitionDuration = '0.75s'">
                 <img src="images/recepi/musaka.jpg" class="card-img-top" alt="...">
-                <div class="card-body" style="background-color: #EDEAD0;">
+                <div class="card-body" style="background-color: #A0E8AF;">
                     <h5 class="card-title">Мусака</h5>
                 </div>
             </div>
         </div>
         <div class="col  px-4">
-            <div class="card h-100">
+            <div class="card h-100 border border-success-subtle"
+                onmouseover=" this.style.boxShadow = '0 .5rem 1rem #1E4847'; this.style.borderStyle = 'hidden'; this.style.transitionDuration = '0.75s';"
+                onmouseleave="this.style.boxShadow = 'none'; this.style.borderStyle = 'solid'; this.style.transitionDuration = '0.75s'">
                 <img src="images/recepi/garash.jpg" class="card-img-top" alt="...">
-                <div class="card-body" style="background-color: #EDEAD0;">
+                <div class="card-body" style="background-color: #A0E8AF ;">
                     <h5 class="card-title">Торта гараш</h5>
                 </div>
             </div>
         </div>
         <div class="col px-4">
-            <div class="card h-100">
+            <div class="card h-100 border border-success-subtle"
+                onmouseover=" this.style.boxShadow = '0 .5rem 1rem #1E4847'; this.style.borderStyle = 'hidden'; this.style.transitionDuration = '0.75s';"
+                onmouseleave="this.style.boxShadow = 'none'; this.style.borderStyle = 'solid'; this.style.transitionDuration = '0.75s'">
                 <img src="images/recepi/sote.jpg" class="card-img-top" alt="...">
-                <div class="card-body" style="background-color: #EDEAD0;">
+                <div class="card-body" style="background-color: #A0E8AF;">
                     <h5 class="card-title">Картофи соте</h5>
                 </div>
             </div>
@@ -313,17 +312,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
-                    <h6>About</h6>
-                    <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative to help
-                        the
-                        upcoming programmers with the code. Scanfcode focuses on providing the most efficient code
-                        or
-                        snippets as the code wants to be simple. We will help programmers build up concepts in
-                        different
-                        programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP,
-                        Android,
-                        SQL
-                        and Algorithm.</p>
+                    <h6>За нас</h6>
+                    <p class="text-justify">Добре дошли в Culinary - вашият уебсайт за рецепти, където вкусът е изкуство! 
+                        Тук ще откриете най-вкусните рецепти, които може да приготвите както за всекидневие, така и за празнични поводи. 
+                        От лесни за приготвяне ястия за начинаещи до изискани десерти - предоставяме ви вдъхновение за кулинарни творения. 
+                        Присъединете се към нашата общност и споделяйте своите собствени кулинарни шедьоври с останалите любители на гурмето!</p>
                 </div>
 
                 <div class="col-xs-6 col-md-3">
@@ -344,14 +337,13 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-2 col-sm-6 col-xs-12">
+                <div class="col-md-1 col-sm-6 col-xs-12">
                 </div>
 
                 <div class="col-md-6 col-sm-6 col-xs-12 pb-5">
                     <ul class="social-icons">
                         <li><a class="search" href="#"><i class="bi bi-search"></i></a></li>
                         <li><a class="post" href="#"><i class="bi bi-pen"></i></a></li>
-                        <li><a class="register" href="#"><i class="bi bi-pencil-square"></i></a></li>
                         <li><a class="log" href="#"><i class="bi bi-key"></i></a></li>
                         <li><a class="fave" href="#"><i class="bi bi-bookmark"></i></a></li>
                         <li><a class="acounts" href="#"><i class="bi bi-person"></i></a></li>
