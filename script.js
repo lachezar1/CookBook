@@ -1,6 +1,48 @@
+function changeAcounts() {
+    activating('acounts');
+    deactivating('search');
+    deactivating('write');
+    deactivating('enter');
+    deactivating('favourite');
 
+}
 
+function changeSearch() {
+    activating('search');
+    deactivating('acounts');
+    deactivating('write');
+    deactivating('enter');
+    deactivating('favourite');
+    
 
+}
+
+function changeWrite() {
+    activating('write');
+    deactivating('acounts');
+    deactivating('search');
+    deactivating('enter');
+    deactivating('favourite');
+
+}
+
+function changeEnter() {
+    activating('enter');
+    deactivating('acounts');
+    deactivating('write');
+    deactivating('search');
+    deactivating('favourite');
+
+}
+
+function changeFave() {
+    activating('favourite');
+    deactivating('acounts');
+    deactivating('write');
+    deactivating('enter');
+    deactivating('search');
+
+}
 
 function ChangeLogIn() {
     let a = document.getElementById('logIn');
@@ -17,7 +59,7 @@ function ChangeLogIn() {
     let b = document.getElementById('signUp');
     b.classList.add("d-none");
     let d = document.getElementById('sUpbtn');
-    d.style.backgroundColor = "#EDEAD0"; 
+    d.style.backgroundColor = "#EDEAD0";
     d.classList.remove("border-bottom-0");
     d.classList.add("border-start-0");
     d.classList.add("border-black");
@@ -47,3 +89,43 @@ function ChangeSignIn() {
     c.classList.add("border-end-0");
 }
 
+function activating(btn) {
+    let a = document.getElementById(btn)
+    a.style.backgroundColor = "#EDEAD0";
+    a.style.color = "#000000";
+    a.classList.remove("btn-success");
+    a.classList.add("btn-outline-success");
+
+    btn += 'Nav';
+
+    let b = document.getElementById(btn)
+    b.style.backgroundColor = "#EDEAD0";
+    b.style.color = "#000000";
+    b.classList.remove("btn-success");
+    b.classList.add("btn-outline-success");
+
+    btn+= 'F';
+    let c = document.getElementById(btn)
+    c.style.backgroundColor = "#29aafe";
+
+}
+
+function deactivating(btn) {
+    let a = document.getElementById(btn);
+    a.style.backgroundColor = null;
+    a.style.color = null;
+    a.classList.add("btn-success");
+    a.classList.remove("btn-outline-success");
+
+    btn += 'Nav';
+    let b = document.getElementById(btn);
+    b.style.backgroundColor = null;
+    b.style.color = null;
+    b.classList.add("btn-success");
+    b.classList.remove("btn-outline-success");
+
+    btn+= 'F';
+    let c = document.getElementById(btn)
+    c.style.backgroundColor = null;
+
+}
