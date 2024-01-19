@@ -33,6 +33,12 @@ function changeEnter() {
     deactivating('search');
     deactivating('favourite');
 
+    let a = document.getElementById('mainpage');
+    a.classList.add("d-none");
+
+    let b = document.getElementById('LoginReg');
+    b.classList.remove("d-none");
+
 }
 
 function changeFave() {
@@ -42,6 +48,21 @@ function changeFave() {
     deactivating('enter');
     deactivating('search');
 
+}
+
+function changeHome() {
+    deactivating('favourite');
+    deactivating('acounts');
+    deactivating('write');
+    deactivating('enter');
+    deactivating('search');
+
+    
+    let a = document.getElementById('mainpage');
+    a.classList.remove("d-none");
+
+    let b = document.getElementById('LoginReg');
+    b.classList.add("d-none");
 }
 
 function ChangeLogIn() {
@@ -88,7 +109,9 @@ function ChangeSignIn() {
     c.classList.add("border-top-0");
     c.classList.add("border-end-0");
 }
-
+ function Validate(){
+   
+ }
 function activating(btn) {
     let a = document.getElementById(btn)
     a.style.backgroundColor = "#EDEAD0";
