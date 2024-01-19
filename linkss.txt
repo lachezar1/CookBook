@@ -7,9 +7,9 @@ https://glovoapp.com/bg/bg/?utm_source=google&utm_medium=cpc&utm_campaign=google
 button pressed outline:
 https://www.w3schools.com/howto/howto_css_outline_buttons.asp
 
-favourite icon and search icon
+favourite icon and search icon done
 
-Grid cards bootstrap
+Grid cards bootstrap done
 
 наи нови тегли последните 3 от апи
 
@@ -17,7 +17,7 @@ Grid cards bootstrap
 reqres упражнаване за апита 
 
 
-.site-footer {
+.site-footer {  done
             background-color: #FFCF56;
             padding: 45px 0 20px;
             font-size: 15px;
@@ -195,3 +195,5 @@ reqres упражнаване за апита
                 font-weight: 600
             }
         }
+
+        https://bootsnipp.com/snippets/8ANqZ validation
