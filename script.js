@@ -211,6 +211,11 @@ function CheckRegestration() {
     a.value = '';
     b.value = '';
     c.value = '';
+
+    if(logIn == true)
+    {
+        changeHome();
+    }
 }
 
 function LogInAndClear()
