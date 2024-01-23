@@ -1,3 +1,12 @@
+var acounts = [
+    {
+        "id": 0,
+        "email": "admin@gmail.com",
+        "username": "adminn",
+        "password": "123456"
+
+    }
+]
 function changeAcounts() {
     activating('acounts');
     deactivating('search');
@@ -13,7 +22,7 @@ function changeSearch() {
     deactivating('write');
     deactivating('enter');
     deactivating('favourite');
-    
+
 
 }
 
@@ -57,7 +66,7 @@ function changeHome() {
     deactivating('enter');
     deactivating('search');
 
-    
+
     let a = document.getElementById('mainpage');
     a.classList.remove("d-none");
 
@@ -109,9 +118,9 @@ function ChangeSignIn() {
     c.classList.add("border-top-0");
     c.classList.add("border-end-0");
 }
- function Validate(){
-   
- }
+function Validate() {
+
+}
 function activating(btn) {
     let a = document.getElementById(btn)
     a.style.backgroundColor = "#EDEAD0";
@@ -127,7 +136,7 @@ function activating(btn) {
     b.classList.remove("btn-success");
     b.classList.add("btn-outline-success");
 
-    btn+= 'F';
+    btn += 'F';
     let c = document.getElementById(btn)
     c.style.backgroundColor = "#29aafe";
 
@@ -147,8 +156,59 @@ function deactivating(btn) {
     b.classList.add("btn-success");
     b.classList.remove("btn-outline-success");
 
-    btn+= 'F';
+    btn += 'F';
     let c = document.getElementById(btn)
     c.style.backgroundColor = null;
 
+}
+function checkPass() {
+    var pass1 = document.getElementById('pass1');
+    var pass2 = document.getElementById('pass2');
+    var message = document.getElementById('confirmMessage');
+    var goodColor = "#66cc66";
+    var badColor = "#ff6666";
+    if (pass1.value == pass2.value) {
+        pass2.style.backgroundColor = goodColor;
+        message.style.color = goodColor;
+        message.innerHTML = "Passwords Match"
+    } else {
+        pass2.style.backgroundColor = badColor;
+        message.style.color = badColor;
+        message.innerHTML = "Passwords Do Not Match!"
+    }
+}
+function Validate(txt) {
+    txt.value = txt.value.replace(/[^a-zA-Z-'\n\r.]+/g, '');
+}
+function email_validate(email) {
+    var regMail = /^([_a-zA-Z0-9-]+)(\.[_a-zA-Z0-9-]+)*@([a-zA-Z0-9-]+\.)+([a-zA-Z]{2,3})$/;
+
+    if (regMail.test(email) == false) {
+        document.getElementById("status").innerHTML = "<span class='warning'>Email address is not valid yet.</span>";
+    }
+    else {
+        document.getElementById("status").innerHTML = "<span class='valid'>Thanks, you have entered a valid Email address!</span>";
+    }
+}
+
+function CheckRegestration() {
+    let a = document.getElementById('emailLog');
+    let b = document.getElementById('user');
+    let c = document.getElementById('pass3');
+    var logIn = false;
+    for (let i = 0; i < acounts.length; i++) {
+        console.log("1");
+        if (a.value == acounts[i].email && b.value == acounts[i].username && c.value == acounts[i].password) {
+            console.log("2");
+            alert("Sucessfully logged in.");
+            logIn = true;
+            break;
+        }
+    }
+    if (logIn == false) {
+        alert("Incorrect information.");
+    }
+    a.value = '';
+    b.value = '';
+    c.value = '';
 }

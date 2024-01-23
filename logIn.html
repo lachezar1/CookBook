@@ -254,47 +254,66 @@
       style="background-color: #EDEAD0;">Log in</div>
 
     <div class="signup-form pb-5 pt-5 border border-dark border-top-0" id="signUp">
-      <form action="" method="post" id="fileForm" role="form" style="border:none">
-        <fieldset>
-          <div class="form-group">
-            <label for="email"><span class="req">* </span> Email Address: </label>
-            <input class="form-control" required type="text" name="email" id="email"
-              onchange="email_validate(this.value);" />
-            <div class="status" id="status"></div>
-          </div>
-          <div class="form-group">
-            <label for="username"><span class="req">* </span> User name: <small>This will be your login user
-                name</small> </label>
-            <input class="form-control" type="text" name="username" id="txt" onkeyup="Validate(this)"
-              placeholder="minimum 6 letters" required />
-            <div id="errLast"></div>
-          </div>
 
-          <div class="form-group">
-            <label for="password"><span class="req">* </span> Password: </label>
-            <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16"
-              id="pass1" /> </p>
+      <div class="form-group">
+        <label for="email"><span class="req">* </span> Email Address: </label>
+        <input class="form-control" required type="text" name="email" id="email"
+          onchange="email_validate(this.value);" />
+        <div class="status" id="status"></div>
+      </div>
+      <div class="form-group pt-3">
+        <label for="username"><span class="req">* </span> User name: <small>This will be your login user
+            name</small> </label>
+        <input class="form-control" type="text" name="username" id="txt" onkeyup="Validate(this)"
+          placeholder="minimum 6 letters" required />
+        <div id="errLast"></div>
+      </div>
 
-            <label for="password"><span class="req">* </span> Password Confirm: </label>
-            <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16"
-              placeholder="Enter again to validate" id="pass2" onkeyup="checkPass(); return false;" />
-            <span id="confirmMessage" class="confirmMessage"></span>
-          </div>
-          <div class="form-group pt-3">
-            <input class="btn btn-success" type="submit" name="submit_reg" value="Register">
-          </div>
-        </fieldset>
-      </form>
+      <div class="form-group pt-3">
+        <label for="password"><span class="req">* </span> Password: </label>
+        <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16"
+          id="pass1" /> </p>
+
+        <label for="password"><span class="req">* </span> Password Confirm: </label>
+
+        <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16"
+          placeholder="Enter again to validate" id="pass2" onkeyup="checkPass(); return false;" />
+        <span id="confirmMessage" class="confirmMessage"></span>
+      </div>
+      <div class="form-group pt-5">
+        <input class="btn btn-success" type="submit" name="submit_reg" value="Register">
+      </div>
     </div>
+
     <div class="login-form d-none pb-5 pt-5 border border-dark border-top-0" id="logIn">
-      <input type="text" placeholder="Email or Username" class="n1"><br>
-      <input type="password" placeholder="Password" class="n1"><br>
 
-      <div class="n2 btn btn-success">Log In</div><br>
-      <a href="#" class="d-flex pt-3" style="color: #000000;"> I forgot my username or password</a>
+      <div class="form-group">
+        <label for="email"><span class="req">* </span> Email Address: </label>
+        <input class="form-control" required type="text" name="email" id="emailLog"/>
+        <div class="status" id="status"></div>
+      </div>
 
+      <div class="form-group pt-4">
+        <label for="username"><span class="req">* </span> User name: </label>
+        <input class="form-control" type="text" name="username" id="user"
+          placeholder="minimum 6 letters" required />
+        <div id="errLast"></div>
+      </div>
+
+      <div class="form-group pt-4">
+        <label for="password"><span class="req">* </span> Password: </label>
+
+        <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16"
+          placeholder="Enter again to validate" id="pass3"/>
+        <span id="confirmMessage" class="confirmMessage"></span>
+      </div>
+      <div class="form-group pt-4">
+        <input class="btn btn-success" type="submit" name="submit_reg" value="Log In" onclick="CheckRegestration()">
+      </div>
     </div>
+
   </div>
+  
   <!--footer -->
   <footer class="site-footer pt-5"
     style="background-color: #FFCF56; padding: 45px 0 20px; font-size: 15px; line-height: 24px; color: #000000;">

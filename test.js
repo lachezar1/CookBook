@@ -1,3 +1,12 @@
+var acounts = [
+    {
+        "id": 0,
+        "email": "admin@gmail.com",
+        "username": "adminn",
+        "password": "123456"
+
+    }
+]
 function changeAcounts() {
     activating('acounts');
     deactivating('search');
@@ -178,17 +187,6 @@ function checkPass() {
         message.innerHTML = "Passwords Do Not Match!"
     }
 }
-function validatephone(phone) {
-    var maintainplus = '';
-    var numval = phone.value
-    if (numval.charAt(0) == '+') {
-        var maintainplus = '';
-    }
-    curphonevar = numval.replace(/[\\A-Za-z!"£$%^&\,*+_={};:'@#~,.Š\/<>?|`¬\]\[]/g, '');
-    phone.value = maintainplus + curphonevar;
-    var maintainplus = '';
-    phone.focus;
-}
 // validates text only
 function Validate(txt) {
     txt.value = txt.value.replace(/[^a-zA-Z-'\n\r.]+/g, '');
@@ -204,26 +202,28 @@ function email_validate(email) {
         document.getElementById("status").innerHTML = "<span class='valid'>Thanks, you have entered a valid Email address!</span>";
     }
 }
-// validate date of birth
-function dob_validate(dob) {
-    var regDOB = /^(\d{1,2})[-\/](\d{1,2})[-\/](\d{4})$/;
 
-    if (regDOB.test(dob) == false) {
-        document.getElementById("statusDOB").innerHTML = "<span class='warning'>DOB is only used to verify your age.</span>";
+function CheckRegestration() {
+    let a = document.getElementById('emailLog');
+    let b = document.getElementById('user');
+    let c = document.getElementById('pass3');
+    var logIn = false;
+    for (let i = 0; i < acounts.length; i++) 
+    {
+        console.log("1");
+      if(a.value == acounts[i].email && b.value == acounts[i].username && c.value == acounts[i].password)
+      {
+        console.log("2");
+        alert("Sucessfully logged in.");
+        logIn = true;
+        break;
+      }
     }
-    else {
-        document.getElementById("statusDOB").innerHTML = "<span class='valid'>Thanks, you have entered a valid DOB!</span>";
+    if(logIn == false)
+    {
+        alert("Incorrect information.");
     }
+    
 }
-// validate address
-function add_validate(address) {
-    var regAdd = /^(?=.*\d)[a-zA-Z\s\d\/]+$/;
 
-    if (regAdd.test(address) == false) {
-        document.getElementById("statusAdd").innerHTML = "<span class='warning'>Address is not valid yet.</span>";
-    }
-    else {
-        document.getElementById("statusAdd").innerHTML = "<span class='valid'>Thanks, Address looks valid!</span>";
-    }
-}
 
