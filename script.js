@@ -212,3 +212,24 @@ function CheckRegestration() {
     b.value = '';
     c.value = '';
 }
+
+function LogInAndClear()
+{
+    let a = document.getElementById('email');
+    let b = document.getElementById('txt');
+    let c = document.getElementById('pass1');
+    let d = document.getElementById('pass2');
+    let message = document.getElementById('confirmMessage');
+    let status = document.getElementById('status');
+
+    //data input in database 
+
+    a.value = '';
+    b.value = '';
+    c.value = '';
+    d.value = '';
+    d.style.backgroundColor = null;
+    message.style.color = null;
+    message.innerHTML = '';
+    status.innerHTML = '';
+}
