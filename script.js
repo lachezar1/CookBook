@@ -195,6 +195,7 @@ function CheckRegestration() {
     let a = document.getElementById('emailLog');
     let b = document.getElementById('user');
     let c = document.getElementById('pass3');
+    
     var logIn = false;
     for (let i = 0; i < acounts.length; i++) {
         console.log("1");
@@ -211,6 +212,11 @@ function CheckRegestration() {
     a.value = '';
     b.value = '';
     c.value = '';
+
+    if(logIn == true)
+    {
+        changeHome();
+    }
 }
 
 function LogInAndClear()
