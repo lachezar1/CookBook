@@ -6,7 +6,30 @@ var acounts = [
         "password": "123456"
 
     }
-]
+];
+var recipes = [
+    {
+        "id": 0,
+        "name": "Мусака",
+        "image": "images/recepi/musaka.jpg",
+        "tag": "основни",
+        "video": ""
+    },
+    {
+        "id": 1,
+        "name": "Торта Гараш",
+        "image": "images/recepi/garash.jpg",
+        "tag": "десерти",
+        "video": ""
+    },
+    {
+        "id": 2,
+        "name": "Картофи Соте",
+        "image": "images/recepi/sote.jpg",
+        "tag": "основни",
+        "video": ""
+    }
+];
 function changeAcounts() {
     activating('acounts');
     deactivating('search');
@@ -195,7 +218,7 @@ function CheckRegestration() {
     let a = document.getElementById('emailLog');
     let b = document.getElementById('user');
     let c = document.getElementById('pass3');
-    
+
     var logIn = false;
     for (let i = 0; i < acounts.length; i++) {
         console.log("1");
@@ -213,14 +236,12 @@ function CheckRegestration() {
     b.value = '';
     c.value = '';
 
-    if(logIn == true)
-    {
+    if (logIn == true) {
         changeHome();
     }
 }
 
-function LogInAndClear()
-{
+function LogInAndClear() {
     let a = document.getElementById('email');
     let b = document.getElementById('txt');
     let c = document.getElementById('pass1');
@@ -238,4 +259,45 @@ function LogInAndClear()
     message.style.color = null;
     message.innerHTML = '';
     status.innerHTML = '';
+}
+function Load() {
+    let recipe = document.getElementById('allContainer');
+
+    let length = recipes.length;
+    for (let i = 0; i < length; i++) {
+        let all_div1 = document.createElement("div");
+        all_div1.classList.add("col", "px-4");
+        recipe.appendChild(all_div1);
+
+        let all_div2 = document.createElement("div");
+        all_div2.classList.add("card", "h-100", "border", "border-success-subtle");
+        all_div2.onmouseover = function () {
+            all_div2.style.boxShadow = "0 .5rem 1rem #1E4847";
+            all_div2.style.borderStyle = "hidden";
+            all_div2.style.transitionDuration = "0.75s";
+        }
+
+        all_div2.onmouseleave = function () {
+            all_div2.style.boxShadow = "none";
+            all_div2.borderStyle = "solid";
+            all_div2.transitionDuration = "0.75s";
+        }
+        all_div1.appendChild(all_div2);
+
+        let all_image = document.createElement("img");
+        all_image.classList.add("card-img-top");
+        all_image.src = recipes[i].image;
+        all_div2.appendChild(all_image);
+
+        let all_div3 = document.createElement("div");
+        all_div3.classList.add("card-body");
+        all_div3.style.backgroundColor = "#A0E8AF";
+        all_div2.appendChild(all_div3);
+
+        let all_h = document.createElement("h5");
+        all_h.classList.add("card-title");
+        all_h.innerText = recipes[i].name;
+        all_div3.appendChild(all_h);
+
+    }
 }
