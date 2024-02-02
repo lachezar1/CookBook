@@ -28,6 +28,76 @@ var recipes = [
         "image": "images/recepi/sote.jpg",
         "tag": "основни",
         "video": ""
+    },
+    {
+        "id": 3,
+        "name": "Пилешки крилца на фурна",
+        "image": "images/recepi/krilca.jpg",
+        "tag": "основни",
+        "video": ""
+    }, 
+    {
+        "id": 4,
+        "name": "Баница",
+        "image": "images/recepi/banitsa.jpg",
+        "tag": "закуски",
+        "video": ""
+    },
+    {
+        "id": 5,
+        "name": "Студен булков чай",
+        "image": "images/recepi/StudenChai.jpg",
+        "tag": "напитки",
+        "video": ""
+    },
+    {
+        "id": 6,
+        "name": "Бял горещ шоколад",
+        "image": "images/recepi/BqlShokolat.jpg",
+        "tag": "напитки",
+        "video": ""
+    },
+    {
+        "id": 7,
+        "name": "Офчарска салата",
+        "image": "images/recepi/ofcharska.jpg",
+        "tag": "салати",
+        "video": ""
+    },
+    {
+        "id": 8,
+        "name": "Зелена салата",
+        "image": "images/recepi/zelena.jpg",
+        "tag": "салати",
+        "video": ""
+    },
+    {
+        "id": 9,
+        "name": "Шоколадов кекс",
+        "image": "images/recepi/keks.jpg",
+        "tag": "десерти",
+        "video": ""
+    },
+    {
+        "id": 10,
+        "name": "Шоколадови бисквити",
+        "image": "images/recepi/biskviti.jpg",
+        "tag": "десерти",
+        "video": ""
+    },
+    {
+        "id": 11,
+        "name": "Палачинки",
+        "image": "images/recepi/palachinki.jpg",
+        "tag": "закуски",
+        "video": ""
+    },
+    {
+        "id": 12,
+        "name": "Хляб",
+        "image": "images/recepi/hlqb.jpg",
+        "tag": "закуски",
+        "video": ""
     }
 ];
 function changeAcounts() {
