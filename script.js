@@ -35,7 +35,7 @@ var recipes = [
         "image": "images/recepi/krilca.jpg",
         "tag": "основни",
         "video": ""
-    }, 
+    },
     {
         "id": 4,
         "name": "Баница",
@@ -98,8 +98,25 @@ var recipes = [
         "image": "images/recepi/hlqb.jpg",
         "tag": "закуски",
         "video": ""
+    },
+    {
+        "id": 13,
+        "name": "Пилешка супа",
+        "image": "images/recepi/pileshka.jpg",
+        "tag": "основни",
+        "video": ""
+    },
+    {
+        "id": 14,
+        "name": "Копривена супа",
+        "image": "images/recepi/koprivena.jpg",
+        "tag": "основни",
+        "video": ""
     }
 ];
+var loaded_Des = false;
+var loaded_Osn = false;
+
 function changeAcounts() {
     activating('acounts');
     deactivating('search');
@@ -337,6 +354,7 @@ function Load() {
     for (let i = 0; i < length; i++) {
         let all_div1 = document.createElement("div");
         all_div1.classList.add("col", "px-4");
+        all_div1.setAttribute("id", recipes[i].id);
         recipe.appendChild(all_div1);
 
         let all_div2 = document.createElement("div");
@@ -369,5 +387,113 @@ function Load() {
         all_h.innerText = recipes[i].name;
         all_div3.appendChild(all_h);
 
+    }
+}
+function FilterDes() {
+    if (loaded_Des == false) {
+        let recipe = document.getElementById('allContainer');
+
+        let length = recipes.length;
+        for (let i = 0; i < length; i++) {
+            let test = document.getElementById(recipes[i].id);
+            test.classList.add("d-none");
+            test.remove();
+        }
+
+        for (let i = 0; i < length; i++) {
+            if (recipes[i].tag == "десерти") {
+                let all_div1 = document.createElement("div");
+                all_div1.classList.add("col", "px-4");
+                all_div1.setAttribute("id", recipes[i].id);
+                recipe.appendChild(all_div1);
+
+                let all_div2 = document.createElement("div");
+                all_div2.classList.add("card", "h-100", "border", "border-success-subtle");
+                all_div2.onmouseover = function () {
+                    all_div2.style.boxShadow = "0 .5rem 1rem #1E4847";
+                    all_div2.style.borderStyle = "hidden";
+                    all_div2.style.transitionDuration = "0.75s";
+                }
+
+                all_div2.onmouseleave = function () {
+                    all_div2.style.boxShadow = "none";
+                    all_div2.borderStyle = "solid";
+                    all_div2.transitionDuration = "0.75s";
+                }
+                all_div1.appendChild(all_div2);
+
+                let all_image = document.createElement("img");
+                all_image.classList.add("card-img-top");
+                all_image.src = recipes[i].image;
+                all_div2.appendChild(all_image);
+
+                let all_div3 = document.createElement("div");
+                all_div3.classList.add("card-body");
+                all_div3.style.backgroundColor = "#A0E8AF";
+                all_div2.appendChild(all_div3);
+
+                let all_h = document.createElement("h5");
+                all_h.classList.add("card-title");
+                all_h.innerText = recipes[i].name;
+                all_div3.appendChild(all_h);
+
+            }
+        }
+        loaded_Des = true;
+    }
+}
+
+function FilterOsn() {
+    if (loaded_Osn == false) {
+        let recipe = document.getElementById('allContainer');
+
+        let length = recipes.length;
+        
+        for (let i = 0; i < lenght; i++) {
+            let test = document.getElementById(recipes[i].id);
+            test.classList.add("d-none");
+            test.remove();
+        }
+
+        for (let i = 0; i < length; i++) {
+            if (recipes[i].tag == "основни") {
+                let all_div1 = document.createElement("div");
+                all_div1.classList.add("col", "px-4");
+                all_div1.setAttribute("id", recipes[i].id);
+                recipe.appendChild(all_div1);
+
+                let all_div2 = document.createElement("div");
+                all_div2.classList.add("card", "h-100", "border", "border-success-subtle");
+                all_div2.onmouseover = function () {
+                    all_div2.style.boxShadow = "0 .5rem 1rem #1E4847";
+                    all_div2.style.borderStyle = "hidden";
+                    all_div2.style.transitionDuration = "0.75s";
+                }
+
+                all_div2.onmouseleave = function () {
+                    all_div2.style.boxShadow = "none";
+                    all_div2.borderStyle = "solid";
+                    all_div2.transitionDuration = "0.75s";
+                }
+                all_div1.appendChild(all_div2);
+
+                let all_image = document.createElement("img");
+                all_image.classList.add("card-img-top");
+                all_image.src = recipes[i].image;
+                all_div2.appendChild(all_image);
+
+                let all_div3 = document.createElement("div");
+                all_div3.classList.add("card-body");
+                all_div3.style.backgroundColor = "#A0E8AF";
+                all_div2.appendChild(all_div3);
+
+                let all_h = document.createElement("h5");
+                all_h.classList.add("card-title");
+                all_h.innerText = recipes[i].name;
+                all_div3.appendChild(all_h);
+
+            }
+        }
+        loaded_Osn = true;
     }
 }
