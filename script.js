@@ -13,15 +13,18 @@ var recipes = [
         "name": "Мусака",
         "image": "images/recepi/musaka.jpg",
         "tag": "основни",
-        "howTo":"Загрявате мазнината в дълбок тиган или тенджера. В загрятата мазнина задушете измитият, изчистен и нарязан на дребно лук, докато омекне. Добавяте нарязаните на дребно половината домати и каймата, черният пипер и чубрицата, както и една чаена лъжица сол. Може да ползвате кайма, каквато имате под ръка, но най-вкусната мусаката става с кайма смес – 50% свинско и 50 % телешко месо.След като водата от доматите изври добавяте червения пипер. Измивате, почиствате, обелвате и нарязвате на дребни кубчета картофите и ги прибавяте към месото. Намазнявате тавичка на дъното на която поставяте другата половина от доматите и върху тях изсипвате сместа за мусака. Добавяте една непълна чаена чаша гореща вода и поставяте в предварително загрята на 200 градуса фурна. Печете до докато водата изври, а картофите станат златисти.Идва моментът за приготвяне на заливката за мусаката. Тя става лесно и много бързо. Разбърквате киселото мляко и яйцата, след което при постоянно бъркане добавяте и брашното, до получаване на гладка смес. Накрая добавяте и настъргания на дребно кашкавал. Заливате мусаката и печете докато порозовее.",
-        "video": ""
+        "howTo": "Загрявате мазнината в дълбок тиган или тенджера. В загрятата мазнина задушете измитият, изчистен и нарязан на дребно лук, докато омекне. Добавяте нарязаните на дребно половината домати и каймата, черният пипер и чубрицата, както и една чаена лъжица сол. Може да ползвате кайма, каквато имате под ръка, но най-вкусната мусаката става с кайма смес – 50% свинско и 50 % телешко месо.След като водата от доматите изври добавяте червения пипер. Измивате, почиствате, обелвате и нарязвате на дребни кубчета картофите и ги прибавяте към месото. Намазнявате тавичка на дъното на която поставяте другата половина от доматите и върху тях изсипвате сместа за мусака. Добавяте една непълна чаена чаша гореща вода и поставяте в предварително загрята на 200 градуса фурна. Печете до докато водата изври, а картофите станат златисти.Идва моментът за приготвяне на заливката за мусаката. Тя става лесно и много бързо. Разбърквате киселото мляко и яйцата, след което при постоянно бъркане добавяте и брашното, до получаване на гладка смес. Накрая добавяте и настъргания на дребно кашкавал. Заливате мусаката и печете докато порозовее.",
+        "ingredientsTM": "кайма-500гр \nлукк-2бр \nкисело мляко-400гр \nкашкавал-100гр \nолио-1 кафена чаша \nкарртофи-1кг  \nдомати-2бр \nяйца-2бр \nбрашно-5 супени лъжици \nчервен пипер-1 чаена лъжица",
+        "video": "https://www.youtube.com/watch?v=PMpzLbSaq_4"
     },
     {
         "id": 1,
         "name": "Торта Гараш",
         "image": "images/recepi/garash.jpg",
         "tag": "десерти",
-        "video": ""
+        "howTo": "Първата стъпка от рецептата за торта Гараш е подготовката на блатовете. Отделяте белтъците от жълтъците на 8 яйца. С помощта на миксер разбивате белтъците заедно с пресятата пудра захар докато станат на сняг. Добавяте пресятото брашно и смлените орехи разбърквате внимателно с дървена лъжица. Разпределяте сместа на 3 или 4 блата. В тава, например с падащи стени, слагате хартия за печене, слагате една част от сместа  печете в предварително загрята на 180 градуса фурна до придобиване на апетитен златист цвят. След изпичане оставете блатовете да се охладят добре.За приготвянето на крема за тортата Гараш, първо разтопете шоколада на водна баня. Може да използвате обикновен черен шоколад, но най-добре е да използвате шоколад за готвене. Разбийте сметаната със захарта до разтопяване на захарта, след което добавете разтопения шоколад при непрекъснато бъркане до получаване на хомогенна смес. Оставете крема да поизстине, за да стегне добре. Идва моментът, в който да сглобите тортата. В ринг, или просто в голяма чиния, в която ще сложите тортата Гараш слагате блат, върху него крем и повтаряте процедурата, докато блатовете свършат. Трябва да замажете тортата и отстрани. Оставете тортата да се охлади в хладилника.Финалният момент е подготовката на глазурата за тортата Гараш. Разтопявате на шоколада с кравето масло на водна баня докато стане хомогенно. Заливате тортата. Класическата рецепта за торта Гараш гласи, че в този момент следва да очертаете 16 парчета, за да можете да ги отрежете лесно, след като глазурата стегне, но и да не го направите (както е приготвена тортата на снимките) не е проблем. Отново според класическата рецепта тортата се поръсва в кръг със зелено боядиса кокосови стърготини. За да избегнем твърде изкуствения вид, в случая тортата е поръсена със смлян шам фъстък.",
+        "ingredientsTM": "пудрра заха-200гр \nбррашно-20гр \nзаквасена сметана-300гр \nзахар-1 чаша \nшоколда-400гр \nбелтъци-8бр  \nорехи-300гр \nкраве масло-1 супена лъжица",
+        "video": "https://www.youtube.com/watch?v=TQuz1tsaJq4"
     },
     {
         "id": 2,
@@ -117,6 +120,7 @@ var recipes = [
 ];
 
 var object_id;
+var loaded = false;
 
 function changeAcounts() {
     activating('acounts');
@@ -133,6 +137,20 @@ function changeSearch() {
     deactivating('write');
     deactivating('enter');
     deactivating('favourite');
+
+    let a = document.getElementById('mainpage');
+    a.classList.add("d-none");
+
+    let c = document.getElementById('SearchPage');
+    c.classList.remove("d-none");
+
+    let b = document.getElementById('LoginReg');
+    b.classList.add("d-none");
+
+    if (loaded == false) {
+        Load();
+        loaded = true;
+    }
 
     let recipe = document.getElementById('allContainer');
 
@@ -167,6 +185,9 @@ function changeEnter() {
     let a = document.getElementById('mainpage');
     a.classList.add("d-none");
 
+    let c = document.getElementById('SearchPage');
+    c.classList.add("d-none");
+
     let b = document.getElementById('LoginReg');
     b.classList.remove("d-none");
 
@@ -191,6 +212,9 @@ function changeHome() {
 
     let a = document.getElementById('mainpage');
     a.classList.remove("d-none");
+
+    let c = document.getElementById('SearchPage');
+    c.classList.add("d-none");
 
     let b = document.getElementById('LoginReg');
     b.classList.add("d-none");
@@ -240,9 +264,7 @@ function ChangeSignIn() {
     c.classList.add("border-top-0");
     c.classList.add("border-end-0");
 }
-function Validate() {
 
-}
 function activating(btn) {
     let a = document.getElementById(btn)
     a.style.backgroundColor = "#EDEAD0";
@@ -553,28 +575,35 @@ function FilterNap() {
 // my worst nightmare part 2
 function openOffCanva() {
     let page = document.getElementById('body');
-    let info_object = document.getElementById("info-object");
+    let ingredients = document.getElementById("ingredients");
     let name_of_offcanva = document.getElementById("name-of-offcanva");
     let image_of_offcanva = document.getElementById("image-of-offcanva");
-    let location_object = document.getElementById("location-object");
+    let HowToRec = document.getElementById("HowToRec");
 
-   // page.classList.remove("overflow-y-auto");
+    // page.classList.remove("overflow-y-auto");
 
     name_of_offcanva.innerText = recipes[object_id].name;
-    info_object.innerText = recipes[object_id].howTo;
+    HowToRec.innerText = recipes[object_id].howTo;
     image_of_offcanva.src = recipes[object_id].image;
+    ingredients.innerText = recipes[object_id].ingredientsTM;
 
 
-   
-    url = info_locations[object_id].url;
+
+    url = recipes[object_id].video;
 }
 
-function closeOffcanva(){
+function closeOffcanva() {
     let page = document.getElementById('body');
     page.classList.add("overflow-y-auto");
 }
 
-function openMaps() {
-    window.open(url, "_blank");
+function openVideo() {
+    if (url == "") {
+        alert("За съжаление все още не можем да ви предоставим видео");
+    }
+    else {
+        window.open(url, "_blank");
+    }
+
 }
 
