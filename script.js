@@ -13,6 +13,7 @@ var recipes = [
         "name": "Мусака",
         "image": "images/recepi/musaka.jpg",
         "tag": "основни",
+        "howTo":"Загрявате мазнината в дълбок тиган или тенджера. В загрятата мазнина задушете измитият, изчистен и нарязан на дребно лук, докато омекне. Добавяте нарязаните на дребно половината домати и каймата, черният пипер и чубрицата, както и една чаена лъжица сол. Може да ползвате кайма, каквато имате под ръка, но най-вкусната мусаката става с кайма смес – 50% свинско и 50 % телешко месо.След като водата от доматите изври добавяте червения пипер. Измивате, почиствате, обелвате и нарязвате на дребни кубчета картофите и ги прибавяте към месото. Намазнявате тавичка на дъното на която поставяте другата половина от доматите и върху тях изсипвате сместа за мусака. Добавяте една непълна чаена чаша гореща вода и поставяте в предварително загрята на 200 градуса фурна. Печете до докато водата изври, а картофите станат златисти.Идва моментът за приготвяне на заливката за мусаката. Тя става лесно и много бързо. Разбърквате киселото мляко и яйцата, след което при постоянно бъркане добавяте и брашното, до получаване на гладка смес. Накрая добавяте и настъргания на дребно кашкавал. Заливате мусаката и печете докато порозовее.",
         "video": ""
     },
     {
@@ -103,19 +104,19 @@ var recipes = [
         "id": 13,
         "name": "Пилешка супа",
         "image": "images/recepi/pileshka.jpg",
-        "tag": "основни",
+        "tag": "супи",
         "video": ""
     },
     {
         "id": 14,
         "name": "Копривена супа",
         "image": "images/recepi/koprivena.jpg",
-        "tag": "основни",
+        "tag": "супи",
         "video": ""
     }
 ];
-var loaded_Des = false;
-var loaded_Osn = false;
+
+var object_id;
 
 function changeAcounts() {
     activating('acounts');
@@ -133,6 +134,17 @@ function changeSearch() {
     deactivating('enter');
     deactivating('favourite');
 
+    let recipe = document.getElementById('allContainer');
+
+    let length = recipes.length;
+
+    for (let i = 0; i < length; i++) {
+        let check = document.getElementById(recipes[i].id);
+        if (check.classList.contains('d-none')) {
+            check.classList.remove("d-none");
+        }
+
+    }
 
 }
 
@@ -387,113 +399,182 @@ function Load() {
         all_h.innerText = recipes[i].name;
         all_div3.appendChild(all_h);
 
+        all_div1.addEventListener("click", function () {
+            object_id = i;
+            openOffCanva();
+        });
+
     }
 }
 function FilterDes() {
-    if (loaded_Des == false) {
-        let recipe = document.getElementById('allContainer');
 
-        let length = recipes.length;
-        for (let i = 0; i < length; i++) {
-            let test = document.getElementById(recipes[i].id);
-            test.classList.add("d-none");
-            test.remove();
+    let recipe = document.getElementById('allContainer');
+
+    let length = recipes.length;
+
+    for (let i = 0; i < length; i++) {
+        let check = document.getElementById(recipes[i].id);
+        if (check.classList.contains('d-none')) {
+            check.classList.remove("d-none");
         }
 
-        for (let i = 0; i < length; i++) {
-            if (recipes[i].tag == "десерти") {
-                let all_div1 = document.createElement("div");
-                all_div1.classList.add("col", "px-4");
-                all_div1.setAttribute("id", recipes[i].id);
-                recipe.appendChild(all_div1);
-
-                let all_div2 = document.createElement("div");
-                all_div2.classList.add("card", "h-100", "border", "border-success-subtle");
-                all_div2.onmouseover = function () {
-                    all_div2.style.boxShadow = "0 .5rem 1rem #1E4847";
-                    all_div2.style.borderStyle = "hidden";
-                    all_div2.style.transitionDuration = "0.75s";
-                }
-
-                all_div2.onmouseleave = function () {
-                    all_div2.style.boxShadow = "none";
-                    all_div2.borderStyle = "solid";
-                    all_div2.transitionDuration = "0.75s";
-                }
-                all_div1.appendChild(all_div2);
-
-                let all_image = document.createElement("img");
-                all_image.classList.add("card-img-top");
-                all_image.src = recipes[i].image;
-                all_div2.appendChild(all_image);
-
-                let all_div3 = document.createElement("div");
-                all_div3.classList.add("card-body");
-                all_div3.style.backgroundColor = "#A0E8AF";
-                all_div2.appendChild(all_div3);
-
-                let all_h = document.createElement("h5");
-                all_h.classList.add("card-title");
-                all_h.innerText = recipes[i].name;
-                all_div3.appendChild(all_h);
-
-            }
-        }
-        loaded_Des = true;
     }
+
+    for (let i = 0; i < length; i++) {
+        let test = document.getElementById(recipes[i].id);
+        if (recipes[i].tag != "десерти") {
+            test.classList.add("d-none");
+        }
+
+    }
+
+
 }
 
 function FilterOsn() {
-    if (loaded_Osn == false) {
-        let recipe = document.getElementById('allContainer');
 
-        let length = recipes.length;
-        
-        for (let i = 0; i < lenght; i++) {
-            let test = document.getElementById(recipes[i].id);
-            test.classList.add("d-none");
-            test.remove();
+    let recipe = document.getElementById('allContainer');
+
+    let length = recipes.length;
+
+    for (let i = 0; i < length; i++) {
+        let check = document.getElementById(recipes[i].id);
+        if (check.classList.contains('d-none')) {
+            check.classList.remove("d-none");
         }
 
-        for (let i = 0; i < length; i++) {
-            if (recipes[i].tag == "основни") {
-                let all_div1 = document.createElement("div");
-                all_div1.classList.add("col", "px-4");
-                all_div1.setAttribute("id", recipes[i].id);
-                recipe.appendChild(all_div1);
-
-                let all_div2 = document.createElement("div");
-                all_div2.classList.add("card", "h-100", "border", "border-success-subtle");
-                all_div2.onmouseover = function () {
-                    all_div2.style.boxShadow = "0 .5rem 1rem #1E4847";
-                    all_div2.style.borderStyle = "hidden";
-                    all_div2.style.transitionDuration = "0.75s";
-                }
-
-                all_div2.onmouseleave = function () {
-                    all_div2.style.boxShadow = "none";
-                    all_div2.borderStyle = "solid";
-                    all_div2.transitionDuration = "0.75s";
-                }
-                all_div1.appendChild(all_div2);
-
-                let all_image = document.createElement("img");
-                all_image.classList.add("card-img-top");
-                all_image.src = recipes[i].image;
-                all_div2.appendChild(all_image);
-
-                let all_div3 = document.createElement("div");
-                all_div3.classList.add("card-body");
-                all_div3.style.backgroundColor = "#A0E8AF";
-                all_div2.appendChild(all_div3);
-
-                let all_h = document.createElement("h5");
-                all_h.classList.add("card-title");
-                all_h.innerText = recipes[i].name;
-                all_div3.appendChild(all_h);
-
-            }
-        }
-        loaded_Osn = true;
     }
+
+    for (let i = 0; i < length; i++) {
+        let test = document.getElementById(recipes[i].id);
+        if (recipes[i].tag != "основни") {
+            test.classList.add("d-none");
+        }
+    }
+
+
 }
+
+function FilterZaks() {
+
+    let recipe = document.getElementById('allContainer');
+
+    let length = recipes.length;
+
+    for (let i = 0; i < length; i++) {
+        let check = document.getElementById(recipes[i].id);
+        if (check.classList.contains('d-none')) {
+            check.classList.remove("d-none");
+        }
+
+    }
+
+    for (let i = 0; i < length; i++) {
+        let test = document.getElementById(recipes[i].id);
+        if (recipes[i].tag != "закуски") {
+            test.classList.add("d-none");
+        }
+    }
+
+}
+
+function FilterSal() {
+
+    let recipe = document.getElementById('allContainer');
+
+    let length = recipes.length;
+
+    for (let i = 0; i < length; i++) {
+        let check = document.getElementById(recipes[i].id);
+        if (check.classList.contains('d-none')) {
+            check.classList.remove("d-none");
+        }
+
+    }
+
+    for (let i = 0; i < length; i++) {
+        let test = document.getElementById(recipes[i].id);
+        if (recipes[i].tag != "салати") {
+            test.classList.add("d-none");
+        }
+    }
+
+
+}
+
+function FilterSup() {
+
+    let recipe = document.getElementById('allContainer');
+
+    let length = recipes.length;
+
+    for (let i = 0; i < length; i++) {
+        let check = document.getElementById(recipes[i].id);
+        if (check.classList.contains('d-none')) {
+            check.classList.remove("d-none");
+        }
+
+    }
+
+    for (let i = 0; i < length; i++) {
+        let test = document.getElementById(recipes[i].id);
+        if (recipes[i].tag != "супи") {
+            test.classList.add("d-none");
+        }
+    }
+
+
+}
+
+function FilterNap() {
+
+    let recipe = document.getElementById('allContainer');
+
+    let length = recipes.length;
+
+    for (let i = 0; i < length; i++) {
+        let check = document.getElementById(recipes[i].id);
+        if (check.classList.contains('d-none')) {
+            check.classList.remove("d-none");
+        }
+
+    }
+
+    for (let i = 0; i < length; i++) {
+        let test = document.getElementById(recipes[i].id);
+        if (recipes[i].tag != "напитки") {
+            test.classList.add("d-none");
+        }
+    }
+
+
+}
+
+// my worst nightmare part 2
+function openOffCanva() {
+    let page = document.getElementById('body');
+    let info_object = document.getElementById("info-object");
+    let name_of_offcanva = document.getElementById("name-of-offcanva");
+    let image_of_offcanva = document.getElementById("image-of-offcanva");
+    let location_object = document.getElementById("location-object");
+
+   // page.classList.remove("overflow-y-auto");
+
+    name_of_offcanva.innerText = recipes[object_id].name;
+    info_object.innerText = recipes[object_id].howTo;
+    image_of_offcanva.src = recipes[object_id].image;
+
+
+   
+    url = info_locations[object_id].url;
+}
+
+function closeOffcanva(){
+    let page = document.getElementById('body');
+    page.classList.add("overflow-y-auto");
+}
+
+function openMaps() {
+    window.open(url, "_blank");
+}
+
