@@ -199,3 +199,5 @@ reqres упражнаване за апита
         https://bootsnipp.com/snippets/8ANqZ validation
 
         background image cupcake i taka natatyk
+
+        

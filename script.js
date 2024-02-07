@@ -40,8 +40,8 @@ var recipes = [
         "name": "Пилешки крилца на фурна",
         "image": "images/recepi/krilca.jpg",
         "tag": "основни",
-        "howTo": "Измивате добре картофите, обелвате ги и ги слагате да поврат в подсолена вода. Картофите не трябва да стават много меки, трябва да останат полусварени, защото освен варенето ще бъдат подложени и на друга топлинна обработка и ако още в началото ги сварим, в последствие ще се разпаднат и вместо картофи соте, ще получите каша соте.Полусварените картофи се нарязват на едри парчета и се запържват, докато придобият златиста коричка в загрятото предварително масло. Мазнината за пържене на картофите трябва да е повечко, за да се изпържат добре.Накрая обърквате картофите със ситно нарязаните копър и чесън и ги оставяте на котлона за не повече от 1-2 минути. Възможно е нарязаните копър и чесън да добавите и след като свалите картофките от котлона и да не ги подлагате на топлинна обработка, тогава те ще останат по-свежи. Ако пък не сте любители на чесъна може да подправите картофите само с копър, макар че така вашите картофи ще се различават съществено от класическите картофи соте.",
-        "ingredientsTM": "бакплувер-1 супена лъжица \nсол-1 чаена лъжица \nдоматено пюре-2 чаени лъжици \nоцет-1 супена лъжица \nчерен пипер-2 чаени лужици \nсусамов тахан-1 супена лъжица \nпилешки крилца-1кг \nчесън на прах-2 чаени лъжици \nолио-2 чаени чаши \nмед-1 супена лъжица \nзаквасена сметана-1 чаша \nлимонен сок-1 чаена лъжица",
+        "howTo": "Първата стъпка от рецептата за пилешки крилца на фурна е изборът и подготовката на крилцата. Избирате пилешки крилца с доказан произход от български производител, каквито са охладените пилешки крилца на Лудогорско пиле. Измивате пилешките крилца и ги срязвате на две части на сгъвка. Подсушавате ги много добре с помощта на кухненска хартия. Изсипвате ги в купа, поръсвате ги с бакпулвера, чесъна и солта и разбърквате много добре, за да стигнат съставките до всяко едно парченце пиле.В тава слагате хартия за печене и нареждате така овкусените пилешки крилца на малко разстояние едно от друго. Печете в предварително загрята на 200 градуса фурна, за около 30 минути, като след това обърнете крилцата и печете още около 10 минути, до придобиване на апетитен златист цвят.Докато крилцата са във фурната пригответе соса за тях, като в малка тенджера изсипете всички съставки са соса. Сложете тенджерата на котлона, за да заври соса при непрекъснато бъркане за около 3-4 минути, докато всички съставки се смесят и разтопят. Готовите леко изстинали пилешки крилца разбъркайте със соса, за да се овкусят. Преди сервиране поръсете със ситно нарязан пресен лук. Може да приготвите и млечен сос, като разбъркате в купа заквасената сметана, солта, черния пипер и сусамовия тахан. Този сос ще освежи и обогати вкуса.",
+        "ingredientsTM": "бакпулвер-1 супена лъжица \nсол-1 чаена лъжица \nдоматено пюре-2 чаени лъжици \nоцет-1 супена лъжица \nчерен пипер-2 чаени лужици \nсусамов тахан-1 супена лъжица \nпилешки крилца-1кг \nчесън на прах-2 чаени лъжици \nолио-2 чаени чаши \nмед-1 супена лъжица \nзаквасена сметана-1 чаша \nлимонен сок-1 чаена лъжица",
         "video": ""
     },
     {
@@ -55,7 +55,7 @@ var recipes = [
     },
     {
         "id": 5,
-        "name": "Студен булков чай",
+        "name": "Студен билков чай",
         "image": "images/recepi/StudenChai.jpg",
         "tag": "напитки",
         "video": ""
@@ -144,6 +144,7 @@ function changeSearch() {
     deactivating('enter');
     deactivating('favourite');
 
+
     let a = document.getElementById('mainpage');
     a.classList.add("d-none");
 
@@ -162,6 +163,9 @@ function changeSearch() {
 
     let length = recipes.length;
 
+    let emp = document.getElementById('empty');
+    emp.classList.add("d-none");
+
     for (let i = 0; i < length; i++) {
         let check = document.getElementById(recipes[i].id);
         if (check.classList.contains('d-none')) {
@@ -169,6 +173,16 @@ function changeSearch() {
         }
 
     }
+    deactivatingF('osn');
+    deactivatingF('zak');
+    deactivatingF('sal');
+    deactivatingF('des');
+    deactivatingF('sup');
+    deactivatingF('nap');
+    deactivatingF('veg');
+    deactivatingF('vegAr');
+    deactivatingF('mor');
+    deactivatingF('keto');
 
 }
 
@@ -311,6 +325,24 @@ function deactivating(btn) {
     c.style.backgroundColor = null;
 
 }
+
+function activatingF(btn) {
+    let a = document.getElementById(btn)
+    a.style.backgroundColor = "#EDEAD0";
+    a.style.color = "#000000";
+    a.classList.remove("btn-success");
+    a.classList.add("btn-outline-success");
+
+}
+
+function deactivatingF(btn) {
+    let a = document.getElementById(btn);
+    a.style.backgroundColor = null;
+    a.style.color = null;
+    a.classList.add("btn-success");
+    a.classList.remove("btn-outline-success");
+}
+
 function checkPass() {
     var pass1 = document.getElementById('pass1');
     var pass2 = document.getElementById('pass2');
@@ -440,6 +472,10 @@ function FilterDes() {
 
     let length = recipes.length;
 
+    let emp = document.getElementById('empty');
+    emp.classList.add("d-none");
+    let br;
+
     for (let i = 0; i < length; i++) {
         let check = document.getElementById(recipes[i].id);
         if (check.classList.contains('d-none')) {
@@ -452,10 +488,24 @@ function FilterDes() {
         let test = document.getElementById(recipes[i].id);
         if (recipes[i].tag != "десерти") {
             test.classList.add("d-none");
+            br++;
+        }
+        if (br == length) {
+
+            emp.classList.remove("d-none");
         }
 
     }
-
+    activatingF('des');
+    deactivatingF('zak');
+    deactivatingF('sal');
+    deactivatingF('osn');
+    deactivatingF('sup');
+    deactivatingF('nap');
+    deactivatingF('veg');
+    deactivatingF('vegAr');
+    deactivatingF('mor');
+    deactivatingF('keto');
 
 }
 
@@ -464,6 +514,10 @@ function FilterOsn() {
     let recipe = document.getElementById('allContainer');
 
     let length = recipes.length;
+
+    let emp = document.getElementById('empty');
+    emp.classList.add("d-none");
+    let br;
 
     for (let i = 0; i < length; i++) {
         let check = document.getElementById(recipes[i].id);
@@ -477,9 +531,23 @@ function FilterOsn() {
         let test = document.getElementById(recipes[i].id);
         if (recipes[i].tag != "основни") {
             test.classList.add("d-none");
+            br++;
+        }
+        if (br == length) {
+
+            emp.classList.remove("d-none");
         }
     }
-
+    activatingF('osn');
+    deactivatingF('zak');
+    deactivatingF('sal');
+    deactivatingF('des');
+    deactivatingF('sup');
+    deactivatingF('nap');
+    deactivatingF('veg');
+    deactivatingF('vegAr');
+    deactivatingF('mor');
+    deactivatingF('keto');
 
 }
 
@@ -488,6 +556,10 @@ function FilterZaks() {
     let recipe = document.getElementById('allContainer');
 
     let length = recipes.length;
+
+    let emp = document.getElementById('empty');
+    emp.classList.add("d-none");
+    let br;
 
     for (let i = 0; i < length; i++) {
         let check = document.getElementById(recipes[i].id);
@@ -501,9 +573,23 @@ function FilterZaks() {
         let test = document.getElementById(recipes[i].id);
         if (recipes[i].tag != "закуски") {
             test.classList.add("d-none");
+            br++;
+        }
+        if (br == length) {
+
+            emp.classList.remove("d-none");
         }
     }
-
+    activatingF('zak');
+    deactivatingF('osn');
+    deactivatingF('sal');
+    deactivatingF('des');
+    deactivatingF('sup');
+    deactivatingF('nap');
+    deactivatingF('veg');
+    deactivatingF('vegAr');
+    deactivatingF('mor');
+    deactivatingF('keto');
 }
 
 function FilterSal() {
@@ -511,6 +597,10 @@ function FilterSal() {
     let recipe = document.getElementById('allContainer');
 
     let length = recipes.length;
+
+    let emp = document.getElementById('empty');
+    emp.classList.add("d-none");
+    let br;
 
     for (let i = 0; i < length; i++) {
         let check = document.getElementById(recipes[i].id);
@@ -524,9 +614,24 @@ function FilterSal() {
         let test = document.getElementById(recipes[i].id);
         if (recipes[i].tag != "салати") {
             test.classList.add("d-none");
+            let emp = document.getElementById('empty');
+            emp.classList.add("d-none");
+        }
+        if (br == length) {
+
+            emp.classList.remove("d-none");
         }
     }
-
+    activatingF('sal');
+    deactivatingF('zak');
+    deactivatingF('osn');
+    deactivatingF('des');
+    deactivatingF('sup');
+    deactivatingF('nap');
+    deactivatingF('veg');
+    deactivatingF('vegAr');
+    deactivatingF('mor');
+    deactivatingF('keto');
 
 }
 
@@ -535,6 +640,10 @@ function FilterSup() {
     let recipe = document.getElementById('allContainer');
 
     let length = recipes.length;
+
+    let emp = document.getElementById('empty');
+    emp.classList.add("d-none");
+    let br;
 
     for (let i = 0; i < length; i++) {
         let check = document.getElementById(recipes[i].id);
@@ -548,9 +657,23 @@ function FilterSup() {
         let test = document.getElementById(recipes[i].id);
         if (recipes[i].tag != "супи") {
             test.classList.add("d-none");
+            br++;
+        }
+        if (br == length) {
+
+            emp.classList.remove("d-none");
         }
     }
-
+    activatingF('sup');
+    deactivatingF('zak');
+    deactivatingF('sal');
+    deactivatingF('des');
+    deactivatingF('osn');
+    deactivatingF('nap');
+    deactivatingF('veg');
+    deactivatingF('vegAr');
+    deactivatingF('mor');
+    deactivatingF('keto');
 
 }
 
@@ -559,6 +682,51 @@ function FilterNap() {
     let recipe = document.getElementById('allContainer');
 
     let length = recipes.length;
+
+    let emp = document.getElementById('empty');
+    emp.classList.add("d-none");
+    let br;
+
+    for (let i = 0; i < length; i++) {
+        let check = document.getElementById(recipes[i].id);
+        if (check.classList.contains('d-none')) {
+            check.classList.remove("d-none");
+        }
+        
+
+    }
+
+    for (let i = 0; i < length; i++) {
+        let test = document.getElementById(recipes[i].id);
+        if (recipes[i].tag != "напитки") {
+            test.classList.add("d-none");
+            br++;
+        }
+        if (br == length) {
+
+            emp.classList.remove("d-none");
+        }
+    }
+    activatingF('nap');
+    deactivatingF('zak');
+    deactivatingF('sal');
+    deactivatingF('des');
+    deactivatingF('sup');
+    deactivatingF('osn');
+    deactivatingF('veg');
+    deactivatingF('vegAr');
+    deactivatingF('mor');
+    deactivatingF('keto');
+
+}
+function FilterVeg() {
+    let recipe = document.getElementById('allContainer');
+
+    let length = recipes.length;
+    var br = 0;
+
+    let emp = document.getElementById('empty');
+    emp.classList.add("d-none");
 
     for (let i = 0; i < length; i++) {
         let check = document.getElementById(recipes[i].id);
@@ -570,12 +738,149 @@ function FilterNap() {
 
     for (let i = 0; i < length; i++) {
         let test = document.getElementById(recipes[i].id);
-        if (recipes[i].tag != "напитки") {
+        if (recipes[i].tag != "веган") {
             test.classList.add("d-none");
+            br++;
         }
+        if (br == length) {
+
+            emp.classList.remove("d-none");
+        }
+
+    }
+    activatingF('veg');
+    deactivatingF('zak');
+    deactivatingF('sal');
+    deactivatingF('des');
+    deactivatingF('sup');
+    deactivatingF('osn');
+    deactivatingF('nap');
+    deactivatingF('vegAr');
+    deactivatingF('mor');
+    deactivatingF('keto');
+}
+
+function FilterVegAr() {
+    let recipe = document.getElementById('allContainer');
+
+    let length = recipes.length;
+    var br = 0;
+
+    let emp = document.getElementById('empty');
+    emp.classList.add("d-none");
+    
+    for (let i = 0; i < length; i++) {
+        let check = document.getElementById(recipes[i].id);
+        if (check.classList.contains('d-none')) {
+            check.classList.remove("d-none");
+        }
+
     }
 
+    for (let i = 0; i < length; i++) {
+        let test = document.getElementById(recipes[i].id);
+        if (recipes[i].tag != "вегетарянски") {
+            test.classList.add("d-none");
+            br++;
+        }
+        if (br == length) {
 
+            emp.classList.remove("d-none");
+        }
+
+    }
+    activatingF('vegAr');
+    deactivatingF('zak');
+    deactivatingF('sal');
+    deactivatingF('des');
+    deactivatingF('sup');
+    deactivatingF('osn');
+    deactivatingF('veg');
+    deactivatingF('nap');
+    deactivatingF('mor');
+    deactivatingF('keto');
+}
+
+function FilterMor() {
+    let recipe = document.getElementById('allContainer');
+
+    let length = recipes.length;
+    var br = 0;
+
+    let emp = document.getElementById('empty');
+    emp.classList.add("d-none");
+    
+    for (let i = 0; i < length; i++) {
+        let check = document.getElementById(recipes[i].id);
+        if (check.classList.contains('d-none')) {
+            check.classList.remove("d-none");
+        }
+
+    }
+
+    for (let i = 0; i < length; i++) {
+        let test = document.getElementById(recipes[i].id);
+        if (recipes[i].tag != "морски") {
+            test.classList.add("d-none");
+            br++;
+        }
+        if (br == length) {
+
+            emp.classList.remove("d-none");
+        }
+
+    }
+    activatingF('mor');
+    deactivatingF('zak');
+    deactivatingF('sal');
+    deactivatingF('des');
+    deactivatingF('sup');
+    deactivatingF('osn');
+    deactivatingF('veg');
+    deactivatingF('vegAr');
+    deactivatingF('nap');
+    deactivatingF('keto');
+}
+
+function FilterKeto() {
+    let recipe = document.getElementById('allContainer');
+
+    let length = recipes.length;
+    var br = 0;
+
+    let emp = document.getElementById('empty');
+    emp.classList.add("d-none");
+    
+    for (let i = 0; i < length; i++) {
+        let check = document.getElementById(recipes[i].id);
+        if (check.classList.contains('d-none')) {
+            check.classList.remove("d-none");
+        }
+
+    }
+
+    for (let i = 0; i < length; i++) {
+        let test = document.getElementById(recipes[i].id);
+        if (recipes[i].tag != "кето") {
+            test.classList.add("d-none");
+            br++;
+        }
+        if (br == length) {
+
+            emp.classList.remove("d-none");
+        }
+
+    }
+    activatingF('keto');
+    deactivatingF('zak');
+    deactivatingF('sal');
+    deactivatingF('des');
+    deactivatingF('sup');
+    deactivatingF('osn');
+    deactivatingF('veg');
+    deactivatingF('vegAr');
+    deactivatingF('mor');
+    deactivatingF('nap');
 }
 
 // my worst nightmare part 2
