@@ -357,8 +357,8 @@
 
         <div
             class="filter pb-5 d-flex align-items-center justify-content-center border border-success border-bottom-0 d-lg-flex d-none">
-            <div class="col-3 mt-5"></div>
-            <div class=" col-8 d-lg-inline d-none mt-3">
+            <div class="col-1 mt-5"></div>
+            <div class=" col-10 d-lg-inline d-none mt-3">
                 <button type="button" class="btn btn-success mx-5 btn-lg" onclick="FilterZaks()"
                     id="zak">Закуски</button>
                 <button type="button" class="btn btn-success mx-5 btn-lg" onclick="FilterSal()" id="sal">Салати</button>
@@ -374,8 +374,8 @@
         </div>
         <div
             class="filter mb-3 d-flex align-items-center justify-content-center border border-success border-top-0  d-lg-flex d-none">
-            <div class="col-3 mb-5"></div>
-            <div class=" col-6 d-lg-inline d-none mb-3">
+            <div class="col-1 mb-5"></div>
+            <div class=" col-9 d-lg-inline d-none mb-3">
                 <button type="button" class="btn btn-success mx-5 btn-lg" onclick="FilterSup()" id="sup">Супи</button>
                 <button type="button" class="btn btn-success mx-5 btn-lg" onclick="FilterDes()"
                     id="des">Десерти</button>
@@ -385,7 +385,7 @@
                 <button type="button" class="btn btn-success mx-5 btn-lg" onclick="FilterKeto()" id="keto">Кето</button>
 
             </div>
-            <div class="col-3 mb-5"></div>
+            <div class="col-2 mb-5"></div>
         </div>
         <!--small screen-->
         <div class="row">
@@ -505,7 +505,7 @@
                                     style="background-color: transparent; color: #1E4847; border-color: #1E4847;"
                                     onmouseover="this.style.backgroundColor = '#1E4847'; this.style.color = '#D4ECDD'; this.style.borderStyle = '#D4ECDD';"
                                     onmouseout="this.style.backgroundColor = 'transparent'; this.style.color = '#1E4847'; this.style.borderColor = '#1E4847';"
-                                    id="FaveBtn">
+                                    id="FaveBtn" onclick="GetFave()">
                                     Любими
                                     <i class="bi bi-suit-heart"></i>
                                 </button>
