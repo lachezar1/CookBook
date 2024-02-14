@@ -127,6 +127,7 @@ var recipes = [
 
 var object_id;
 var loaded = false;
+var list = [];
 
 function changeAcounts() {
     activating('acounts');
@@ -153,6 +154,9 @@ function changeSearch() {
 
     let b = document.getElementById('LoginReg');
     b.classList.add("d-none");
+
+    let d = document.getElementById('favePage');
+    d.classList.add("d-none");
 
     if (loaded == false) {
         Load();
@@ -211,6 +215,9 @@ function changeEnter() {
     let b = document.getElementById('LoginReg');
     b.classList.remove("d-none");
 
+    let d = document.getElementById('favePage');
+    d.classList.add("d-none");
+
 }
 
 function changeFave() {
@@ -219,6 +226,20 @@ function changeFave() {
     deactivating('write');
     deactivating('enter');
     deactivating('search');
+
+    let a = document.getElementById('mainpage');
+    a.classList.add("d-none");
+
+    let c = document.getElementById('SearchPage');
+    c.classList.add("d-none");
+
+    let b = document.getElementById('LoginReg');
+    b.classList.add("d-none");
+
+    let d = document.getElementById('favePage');
+    d.classList.remove("d-none");
+
+    LoadFave();
 
 }
 
@@ -465,6 +486,12 @@ function Load() {
         });
 
     }
+    let Button = document.getElementById('FaveBtn');
+    Button.addEventListener("click", function () {
+        list.push({ object_id });
+        console.log(object_id);
+    });
+
 }
 function FilterDes() {
 
@@ -692,7 +719,7 @@ function FilterNap() {
         if (check.classList.contains('d-none')) {
             check.classList.remove("d-none");
         }
-        
+
 
     }
 
@@ -768,7 +795,7 @@ function FilterVegAr() {
 
     let emp = document.getElementById('empty');
     emp.classList.add("d-none");
-    
+
     for (let i = 0; i < length; i++) {
         let check = document.getElementById(recipes[i].id);
         if (check.classList.contains('d-none')) {
@@ -809,7 +836,7 @@ function FilterMor() {
 
     let emp = document.getElementById('empty');
     emp.classList.add("d-none");
-    
+
     for (let i = 0; i < length; i++) {
         let check = document.getElementById(recipes[i].id);
         if (check.classList.contains('d-none')) {
@@ -850,7 +877,7 @@ function FilterKeto() {
 
     let emp = document.getElementById('empty');
     emp.classList.add("d-none");
-    
+
     for (let i = 0; i < length; i++) {
         let check = document.getElementById(recipes[i].id);
         if (check.classList.contains('d-none')) {
@@ -885,6 +912,7 @@ function FilterKeto() {
 
 // my worst nightmare part 2
 function openOffCanva() {
+    event.preventDefault();
     let page = document.getElementById('body');
     let ingredients = document.getElementById("ingredients");
     let name_of_offcanva = document.getElementById("name-of-offcanva");
@@ -914,6 +942,61 @@ function openVideo() {
     }
     else {
         window.open(url, "_blank");
+    }
+
+}
+
+function LoadFave() {
+    let recipe = document.getElementById('FaveContainer');
+
+    let length = recipes.length;
+    let current = list[0];
+
+    for (let i = 0; i < length; i++) {
+        if (current == i) {
+            let all_div1 = document.createElement("div");
+            all_div1.classList.add("col", "px-4");
+            all_div1.setAttribute("id", recipes[i].id);
+            recipe.appendChild(all_div1);
+
+            let all_div2 = document.createElement("div");
+            all_div2.classList.add("card", "h-100", "border", "border-success-subtle");
+            all_div2.onmouseover = function () {
+                all_div2.style.boxShadow = "0 .5rem 1rem #1E4847";
+                all_div2.style.borderStyle = "hidden";
+                all_div2.style.transitionDuration = "0.75s";
+            }
+
+            all_div2.onmouseleave = function () {
+                all_div2.style.boxShadow = "none";
+                all_div2.borderStyle = "solid";
+                all_div2.transitionDuration = "0.75s";
+            }
+            all_div1.appendChild(all_div2);
+
+            let all_image = document.createElement("img");
+            all_image.classList.add("card-img-top");
+            all_image.src = recipes[i].image;
+            all_div2.appendChild(all_image);
+
+            let all_div3 = document.createElement("div");
+            all_div3.classList.add("card-body");
+            all_div3.style.backgroundColor = "#A0E8AF";
+            all_div2.appendChild(all_div3);
+
+            let all_h = document.createElement("h5");
+            all_h.classList.add("card-title");
+            all_h.innerText = recipes[i].name;
+            all_div3.appendChild(all_h);
+
+            all_div1.addEventListener("click", function () {
+                object_id = i;
+                openOffCanva();
+            });
+
+            current++;
+        }
+
     }
 
 }
