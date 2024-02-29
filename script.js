@@ -69,7 +69,7 @@ var recipes = [
     },
     {
         "id": 7,
-        "name": "Офчарска салата",
+        "name": "Овчарска салата",
         "image": "images/recepi/ofcharska.jpg",
         "tag": "салати",
         "video": ""
@@ -128,6 +128,8 @@ var recipes = [
 var object_id;
 var loaded = false;
 var list = [];
+var favRecipe = [];
+
 
 function changeAcounts() {
     activating('acounts');
@@ -166,6 +168,8 @@ function changeSearch() {
     let recipe = document.getElementById('allContainer');
 
     let length = recipes.length;
+
+
 
     let emp = document.getElementById('empty');
     emp.classList.add("d-none");
@@ -955,19 +959,21 @@ function openVideo() {
 function GetFave() {
     list.push(object_id);
     //console.log(list[0]);
-    alert("Успешно добвихте " +recipes[object_id].name + " в Любими")
+    alert("Успешно добвихте " + recipes[object_id].name + " в Любими");
+    favRecipe.push(object_id);
+
 }
 
 var last_recepie = 0;
 function LoadFave() {
     let recipe = document.getElementById('FaveContainer');
-    let length = list.length;
+    let length = recipes.length;
     let current = list[0];
     //console.log(recipes[list[0]].name);
     //console.log(current);
     let btn = document.getElementById('emptyFav');
     btn.classList.add("d-none");
-    console.log(length);
+    //console.log(length);
 
     if (list[0] != null) {
         for (let i = last_recepie; i < length; i++) {
@@ -975,7 +981,7 @@ function LoadFave() {
             all_div1.classList.add("col", "px-4");
             all_div1.setAttribute("id", recipes[list[i]].id);
             recipe.appendChild(all_div1);
-            console.log(current);
+            //console.log(current);
 
             let all_div2 = document.createElement("div");
             all_div2.classList.add("card", "h-100", "border", "border-success-subtle");
@@ -1007,10 +1013,6 @@ function LoadFave() {
             all_h.innerText = recipes[list[i]].name;
             all_div3.appendChild(all_h);
 
-            all_div1.addEventListener("click", function () {
-                object_id = i;
-                openOffCanva();
-            });
             // console.log(current)
             current++;
 
@@ -1020,6 +1022,22 @@ function LoadFave() {
     }
     else {
         btn.classList.remove("d-none");
+    }
+
+    console.log(favRecipe);
+    let hristo = favRecipe[0];
+
+    for (let i = 0; i < length; i++) {
+        let check = document.getElementById(recipes[i].id);
+        console.log(check);
+        console.log(hristo);
+        if (check == hristo) {
+            all_div1.addEventListener("click", function () {
+                object_id = recipes[i];
+                openOffCanva();
+            });
+        }
+        hristo++;
     }
 
     //list = [];
