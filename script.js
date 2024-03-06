@@ -1052,5 +1052,12 @@ function CloseAcc()
     acc.style.color = null;
     acc.classList.add("btn-success");
     acc.classList.remove("btn-outline-success");
+
+    let accNav = document.getElementById('acountsNav');
+    
+    accNav.style.backgroundColor = null;
+    accNav.style.color = null;
+    accNav.classList.add("btn-success");
+    accNav.classList.remove("btn-outline-success");
 }
 
