@@ -960,14 +960,14 @@ function GetFave() {
     list.push(object_id);
     //console.log(list[0]);
     alert("Успешно добвихте " + recipes[object_id].name + " в Любими");
-    favRecipe.push(object_id);
+    // favRecipe.push(object_id);
 
 }
 
 var last_recepie = 0;
 function LoadFave() {
     let recipe = document.getElementById('FaveContainer');
-    let length = recipes.length;
+    let length = list.length;
     let current = list[0];
     //console.log(recipes[list[0]].name);
     //console.log(current);
@@ -981,7 +981,7 @@ function LoadFave() {
             all_div1.classList.add("col", "px-4");
             all_div1.setAttribute("id", recipes[list[i]].id);
             recipe.appendChild(all_div1);
-            //console.log(current);
+            console.log(current);
 
             let all_div2 = document.createElement("div");
             all_div2.classList.add("card", "h-100", "border", "border-success-subtle");
@@ -1013,48 +1013,92 @@ function LoadFave() {
             all_h.innerText = recipes[list[i]].name;
             all_div3.appendChild(all_h);
 
+            all_div1.addEventListener("click", function () {
+                object_id = i;
+                openOffCanva();
+            });
             // console.log(current)
             current++;
 
+            last_recepie = length;
         }
-
-        last_recepie = length;
     }
-    else {
-        btn.classList.remove("d-none");
-    }
-
-    console.log(favRecipe);
-    let hristo = favRecipe[0];
-
-    for (let i = 0; i < length; i++) {
-        let check = document.getElementById(recipes[i].id);
-        console.log(check);
-        console.log(hristo);
-        if (check == hristo) {
-            all_div1.addEventListener("click", function () {
-                object_id = recipes[i];
-                openOffCanva();
-            });
-        }
-        hristo++;
-    }
-
-    //list = [];
-
+    /* if (list[0] != null) {
+         for (let i = last_recepie; i < length; i++) {
+             let all_div1 = document.createElement("div");
+             all_div1.classList.add("col", "px-4");
+             all_div1.setAttribute("id", recipes[list[i]].id);
+             recipe.appendChild(all_div1);
+             console.log(current);
+ 
+             let all_div2 = document.createElement("div");
+             all_div2.classList.add("card", "h-100", "border", "border-success-subtle");
+             all_div2.onmouseover = function () {
+                 all_div2.style.boxShadow = "0 .5rem 1rem #1E4847";
+                 all_div2.style.borderStyle = "hidden";
+                 all_div2.style.transitionDuration = "0.75s";
+             }
+ 
+             all_div2.onmouseleave = function () {
+                 all_div2.style.boxShadow = "none";
+                 all_div2.borderStyle = "solid";
+                 all_div2.transitionDuration = "0.75s";
+             }
+             all_div1.appendChild(all_div2);
+ 
+             let all_image = document.createElement("img");
+             all_image.classList.add("card-img-top");
+             all_image.src = recipes[[list[i]]].image;
+             all_div2.appendChild(all_image);
+ 
+             let all_div3 = document.createElement("div");
+             all_div3.classList.add("card-body");
+             all_div3.style.backgroundColor = "#A0E8AF";
+             all_div2.appendChild(all_div3);
+ 
+             let all_h = document.createElement("h5");
+             all_h.classList.add("card-title");
+             all_h.innerText = recipes[list[i]].name;
+             all_div3.appendChild(all_h);
+ 
+             all_div1.addEventListener("click", function () {
+                 object_id = i;
+                 openOffCanva();
+             });
+             // console.log(current)
+             current++;
+ 
+             console.log(favRecipe);
+             let hristo = favRecipe[0];
+ 
+             for (let i = 0; i < length; i++) {
+                 let check = document.getElementById(recipes[i].id);
+                 console.log(check);
+                 console.log(hristo);
+                 if (check == hristo) {
+                     all_div1.addEventListener("click", function () {
+                         object_id = recipes[i];
+                         openOffCanva();
+                     });
+                 }
+                 
+             }
+ 
+             //list = [];
+ 
+         }*/
 }
 
-function CloseAcc()
-{
+function CloseAcc() {
     let acc = document.getElementById('acounts');
-    
+
     acc.style.backgroundColor = null;
     acc.style.color = null;
     acc.classList.add("btn-success");
     acc.classList.remove("btn-outline-success");
 
     let accNav = document.getElementById('acountsNav');
-    
+
     accNav.style.backgroundColor = null;
     accNav.style.color = null;
     accNav.classList.add("btn-success");

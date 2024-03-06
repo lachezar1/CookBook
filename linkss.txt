@@ -201,3 +201,6 @@ reqres упражнаване за апита
         background image cupcake i taka natatyk
 
         -strelka na receptata
+        -bug na lubimi
+        -alert na registraciq
+        -ne se sviva informaciqta
