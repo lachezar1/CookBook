@@ -455,7 +455,9 @@
                 <button class=" btn btn-success mx-2 btn-lg" type="button" id="favourite" onclick="changeFave()">Любими
                     <i class="bi bi-bookmark"></i>
                 </button>
-                <button class="btn btn-success mx-2 btn-lg" type="button" id="acounts" onclick="changeAcounts()">Акаунт
+                <button class="btn btn-success mx-2 btn-lg" type="button" id="acounts" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRightAcc" aria-controls="offcanvasRightAcc"
+                    onclick="changeAcounts()">Акаунт
                     <i class="bi bi-person"></i>
                 </button>
             </div>
@@ -469,14 +471,15 @@
     <!--SIDE MENU-->
     <div class="offcanvas offcanvas-end overflow-auto" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
         aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header d-flex justify-content-end">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
         <div class="offcanvas-header p-0">
             <img class="d-none d-md-block img-fluid" src="images/logo/4.png" alt="logo" class="my-0 overflow-hidden p-0"
                 data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
                 aria-controls="offcanvasWithBothOptions">
         </div>
         <div class="offcanvas-body d-flex flex-column" style="background-color:#ffff ;">
-            <button type="button" class="btn btn-lg btn-close d-md-none" data-bs-dismiss="offcanvas"
-                aria-label="Close"></button>
             <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="searchNav"
                 onclick="changeSearch()" data-bs-dismiss="offcanvas" aria-label="Close">Търсачка
                 <i class="bi bi-search"></i></button>
@@ -490,32 +493,64 @@
                 onclick="changeFave()" data-bs-dismiss="offcanvas" aria-label="Close">Любими
                 <i class="bi bi-bookmark"></i></button>
             <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="acountsNav"
-                onclick="changeAcounts()" data-bs-dismiss="offcanvas" aria-label="Close">Акаунт
+                onclick="changeAcounts()" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightAcc"
+                aria-controls="offcanvasRightAcc">Акаунт
                 <i class="bi bi-person"></i>
+        </div>
+    </div>
+    <!--Account-->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRightAcc" aria-labelledby="offcanvasRightLabel" style="background-color: #EDEAD0;">
+        <div class="offcanvas-header d-flex justify-content-end">
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" onclick="CloseAcc()"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="d-flex justify-content-center align-items-start">
+                <img src="images/logo/profile-removebg-preview.png" alt="" class="img-fluid" style="height: 250px;">
+            </div>
+            <div class="d-flex align-middle">
+                <div class="d-block">
+                    <p class="my-1">Name:</p>
+                    <p class="my-1">e-mail:</p>
+                </div>
+            </div>
+            <hr>
+            <button class="w-100 btn mx-2 my-1 btn-lg" style="color: #054727;"
+                onmouseover="this.style.backgroundColor = '#FFCF56'; this.style.color = '#054727';"
+                onmouseleave="this.style.backgroundColor = ''; this.style.color = '#054727';">History</button>
+            <button class="w-100 btn mx-2 my-1 btn-lg" style="color: #054727;"
+                onmouseover="this.style.backgroundColor = '#FFCF56'; this.style.color = '#054727';"
+                onmouseleave="this.style.backgroundColor = ''; this.style.color = '#054727';">Log
+                out</button>
+            <button class="w-100 btn mx-2 my-1 btn-lg" style="color: #054727;"
+                onmouseover="this.style.backgroundColor = '#FFCF56'; this.style.color = '#054727';"
+                onmouseleave="this.style.backgroundColor = ''; this.style.color = '#054727';">Book
+                Information</button>
+
         </div>
     </div>
     <div id="mainpage">
         <!--banner-->
-        <main class="container pt-5 pb-5 w-100 d-flex justify-content-center" style=" height: 100vh; display: grid; place-items: center; overflow: hidden;">
+        <main class="container pt-5 pb-5 w-100 d-flex justify-content-center"
+            style=" height: 100vh; display: grid; place-items: center; overflow: hidden;">
             <ul class='slider list-unstyled w-100'>
-                
+
                 <li class='item' style="background-image: url('images/recepi/banitsa.jpg');">
-                    
+
                 </li>
                 <li class='item w-100' style="background-image: url('images/recepi/biskviti.jpg'); ">
-                   
+
                 </li>
                 <li class='item' style="background-image: url('images/recepi/BqlShokolat.jpg'); ">
-                   
+
                 </li>
                 <li class='item' style="background-image: url('images/recepi/garash.jpg'); ">
-                    
+
                 </li>
                 <li class='item' style="background-image: url('images/recepi/keks.jpg'); ">
-                    
+
                 </li>
                 <li class='item' style="background-image: url('images/recepi/zelena.jpg'); ">
-                    
+
                 </li>
             </ul>
             <nav class='nav'>

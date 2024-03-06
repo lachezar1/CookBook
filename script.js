@@ -1044,3 +1044,13 @@ function LoadFave() {
 
 }
 
+function CloseAcc()
+{
+    let acc = document.getElementById('acounts');
+    
+    acc.style.backgroundColor = null;
+    acc.style.color = null;
+    acc.classList.add("btn-success");
+    acc.classList.remove("btn-outline-success");
+}
+
