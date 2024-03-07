@@ -495,13 +495,15 @@
             <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="acountsNav"
                 onclick="changeAcounts()" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRightAcc"
                 aria-controls="offcanvasRightAcc">Акаунт
-                <i class="bi bi-person"></i>
+                <i class="bi bi-person"></i></button>
         </div>
     </div>
     <!--Account-->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRightAcc" aria-labelledby="offcanvasRightLabel" style="background-color: #EDEAD0;">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRightAcc" aria-labelledby="offcanvasRightLabel"
+        style="background-color: #EDEAD0;">
         <div class="offcanvas-header d-flex justify-content-end">
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" onclick="CloseAcc()"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
+                onclick="CloseAcc()"></button>
         </div>
         <div class="offcanvas-body">
             <div class="d-flex justify-content-center align-items-start">
@@ -516,7 +518,8 @@
             <hr>
             <button class="w-100 btn mx-2 my-1 btn-lg" style="color: #054727;"
                 onmouseover="this.style.backgroundColor = '#FFCF56'; this.style.color = '#054727';"
-                onmouseleave="this.style.backgroundColor = ''; this.style.color = '#054727';">Промени информация</button>
+                onmouseleave="this.style.backgroundColor = ''; this.style.color = '#054727';">Промени
+                информация</button>
             <button class="w-100 btn mx-2 my-1 btn-lg" style="color: #054727;"
                 onmouseover="this.style.backgroundColor = '#FFCF56'; this.style.color = '#054727';"
                 onmouseleave="this.style.backgroundColor = ''; this.style.color = '#054727';">Излез</button>
@@ -879,7 +882,7 @@
                                         Съставки
                                     </button>
                                 </h2>
-                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse"
+                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
                                     style="background-color: #bed3b4;">
                                     <div class="accordion-body fs-6" id="ingredients">
                                     </div>
@@ -887,14 +890,14 @@
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed fs-5" type="button"
+                                    <button class="accordion-button  fs-5" type="button"
                                         data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo"
                                         aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo"
                                         style="background-color: #fff; color: #1E4847; border: solid 2px #1E4847;">
                                         Начин на приготвяне
                                     </button>
                                 </h2>
-                                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+                                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
                                     style="background-color: #bed3b4;">
                                     <div class="accordion-body fs-6" id="HowToRec">
                                     </div>

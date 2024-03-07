@@ -200,7 +200,7 @@ reqres упражнаване за апита
 
         background image cupcake i taka natatyk
 
-        -strelka na receptata
-        -bug na lubimi
+        -strelka na receptata dont care didnt ask; check
+        -bug na lubimi dont care didnt ask; check
         -alert na registraciq
-        -ne se sviva informaciqta
+        -ne se sviva informaciqta dont care didnt ask; check
