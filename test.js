@@ -162,7 +162,7 @@ function deactivating(btn) {
 
 function checkPass() {
     //Store the password field objects into variables ...
-    var pass1 = document.getElementById('pass1');
+    var pass1 = document.getElementById('password');
     var pass2 = document.getElementById('pass2');
     //Store the Confimation Message Object ...
     var message = document.getElementById('confirmMessage');
@@ -208,22 +208,65 @@ function CheckRegestration() {
     let b = document.getElementById('user');
     let c = document.getElementById('pass3');
     var logIn = false;
-    for (let i = 0; i < acounts.length; i++) 
-    {
+    for (let i = 0; i < acounts.length; i++) {
         console.log("1");
-      if(a.value == acounts[i].email && b.value == acounts[i].username && c.value == acounts[i].password)
-      {
-        console.log("2");
-        alert("Sucessfully logged in.");
-        logIn = true;
-        break;
-      }
+        if (a.value == acounts[i].email && b.value == acounts[i].username && c.value == acounts[i].password) {
+            console.log("2");
+            alert("Sucessfully logged in.");
+            logIn = true;
+            break;
+        }
     }
-    if(logIn == false)
-    {
+    if (logIn == false) {
         alert("Incorrect information.");
     }
-    
+
 }
+function Register() {
+
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    // Fetch API request
+    fetch('http://127.0.0.1:8000/api/register', {
+        method: 'POST',
+        body: new FormData(document.getElementById('registrationForm')),
+    })
+        .then(response => response.json())
+        .then(data => {
+            // Display response in an alert
+            alert(data.message);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+
+}
+function Registration(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+
+    // Fetch the form data
+    const formData = new FormData(document.getElementById('registrationForm'));
+
+    // Send a POST request to the API endpoint
+    fetch('http://127.0.0.1:8000/api/register', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => {
+      if (response.created) {
+        // Registration successful, show alert
+        alert('Registration successful');
+        // Optionally, you can redirect the user to another page here
+      } else {
+        // Registration failed, show error message
+        alert('Registration failed. Please try again.');
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('An error occurred. Please try again later.');
+    });
+  }
 
 

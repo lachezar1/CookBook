@@ -1105,3 +1105,15 @@ function CloseAcc() {
     accNav.classList.remove("btn-outline-success");
 }
 
+var image;
+var leftcanvas;
+
+
+function upload(){
+  image = document.getElementById("imagefile");
+  leftcanvas = document.getElementById("leftcan");
+  rightcanvas = document.getElementById("rightcan");
+  image = new SimpleImage(image);
+  image.drawTo(leftcanvas);
+}
+
