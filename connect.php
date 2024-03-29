@@ -4,7 +4,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $conn = new mysqli('127.0.0.1', 'root', '', 'culinary');
+    $conn = new mysqli('localhost', 'root', '', 'culinary');
     if ($conn->connect_error) {
         die('Connection Failed: ' . $conn->connect_error);
     } else {
@@ -12,7 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($stmt) {
             $stmt->bind_param('sss', $email, $username, $password);
             if ($stmt->execute()) {
-                echo 'Registration done';
+                // Use JavaScript to display an alert
+                // echo '<script>alert("Registration done");</script>';
             } else {
                 echo 'Error: ' . $stmt->error;
             }
@@ -26,4 +27,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo 'Invalid request method';
 }
 ?>
-

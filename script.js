@@ -131,6 +131,28 @@ var list = [];
 var favRecipe = [];
 
 
+$(document).ready(function () {
+    $('#registrationForm').submit(function (e) {
+        e.preventDefault(); // Prevent form submission
+
+        $.ajax({
+            type: 'POST',
+            url: 'connect.php',
+            data: $('#registrationForm').serialize(), // Serialize form data
+            success: function (response) {
+                $('#message').html('<div class="alert alert-success">' + response + '</div>'); // Display success message in div
+                $('#registrationForm')[0].reset(); // Reset form fields
+                // Display alert
+                alert("Registration done");
+            },
+            error: function (xhr, status, error) {
+                $('#message').html('<div class="alert alert-danger">Error: ' + xhr.responseText + '</div>'); // Display error message in div
+            }
+        });
+    });
+});
+
+
 function changeAcounts() {
     activating('acounts');
     deactivating('search');
@@ -374,7 +396,7 @@ function deactivatingF(btn) {
 }
 
 function checkPass() {
-    var pass1 = document.getElementById('pass1');
+    var pass1 = document.getElementById('password');
     var pass2 = document.getElementById('pass2');
     var message = document.getElementById('confirmMessage');
     var goodColor = "#66cc66";
@@ -433,17 +455,36 @@ function CheckRegestration() {
 function LogInAndClear() {
     let a = document.getElementById('email');
     let b = document.getElementById('txt');
-    let c = document.getElementById('pass1');
+    let c = document.getElementById('password');
     let d = document.getElementById('pass2');
     let message = document.getElementById('confirmMessage');
     let status = document.getElementById('status');
 
     //data input in database 
+    var email = $('#email').val();
+    var username = $('#username').val();
+    var password = $('#password').val();
 
-    a.value = '';
-    b.value = '';
-    c.value = '';
-    d.value = '';
+    $.ajax({
+        type: 'POST',
+        url: 'connect.php',
+        data: {
+            email: email,
+            username: username,
+            password: password
+        },
+        success: function(response){
+            $('#message').html('<div class="alert alert-success">' + response + '</div>'); // Display success message in div
+            $('#registrationForm')[0].reset(); // Reset form fields
+            // Display alert
+            /*alert("Registration done");*/
+        },
+        error: function(xhr, status, error){
+            $('#message').html('<div class="alert alert-danger">Error: ' + xhr.responseText + '</div>'); // Display error message in div
+        }
+    });
+
+
     d.style.backgroundColor = null;
     message.style.color = null;
     message.innerHTML = '';
