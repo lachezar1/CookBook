@@ -701,38 +701,41 @@
                         <span id="confirmMessage" class="confirmMessage"></span>
                     </div>
                     <div class="form-group pt-5">
-                        <input class="btn btn-success" type="submit" name="submit_reg" value="Register" onclick="LogInAndClear()">
+                        <input class="btn btn-success" type="submit" name="submit_reg" value="Register"
+                            onclick="LogInAndClear()">
                     </div>
                 </form>
-                <div class="d-none" id="message"></div>
+               
             </div>
 
             <div class="login-form d-none pb-5 pt-5 border border-dark border-top-0" id="logIn">
 
-                <div class="form-group">
-                    <label for="email"><span class="req">* </span> Email Address: </label>
-                    <input class="form-control" required type="text" name="email" id="emailLog" />
-                    <div class="status" id="status"></div>
-                </div>
+                <form action="register.php" method="post" id="loginForm">
+                    <div class="form-group">
+                        <label for="email"><span class="req">* </span> Email Address: </label>
+                        <input class="form-control" required type="text" name="email" id="emailLog" />
+                        <div class="status" id="status"></div>
+                    </div>
 
-                <div class="form-group pt-4">
-                    <label for="username"><span class="req">* </span> User name: </label>
-                    <input class="form-control" type="text" name="username" id="user" placeholder="minimum 6 letters"
-                        required />
-                    <div id="errLast"></div>
-                </div>
+                    <div class="form-group pt-4">
+                        <label for="username"><span class="req">* </span> User name: </label>
+                        <input class="form-control" type="text" name="username" id="user"
+                            placeholder="minimum 6 letters" required />
+                        <div id="errLast"></div>
+                    </div>
 
-                <div class="form-group pt-4">
-                    <label for="password"><span class="req">* </span> Password: </label>
+                    <div class="form-group pt-4">
+                        <label for="password"><span class="req">* </span> Password: </label>
 
-                    <input required name="password" type="password" class="form-control inputpass" minlength="4"
-                        maxlength="16" placeholder="Enter password" id="pass3" />
-                    <span id="confirmMessage" class="confirmMessage"></span>
-                </div>
-                <div class="form-group pt-4">
-                    <input class="btn btn-success" type="submit" name="submit_reg" value="Log In"
-                        onclick="CheckRegestration()">
-                </div>
+                        <input required name="password" type="password" class="form-control inputpass" minlength="4"
+                            maxlength="16" placeholder="Enter password" id="pass3" />
+                        <span id="confirmMessage" class="confirmMessage"></span>
+                    </div>
+                    <div class="form-group pt-4">
+                        <input class="btn btn-success" type="submit" name="submit_reg" value="Log In">
+                    </div>
+                </form>
+                <div class="d-none" id="message"></div>
             </div>
 
         </div>

@@ -153,6 +153,28 @@ $(document).ready(function () {
 });
 
 
+$(document).ready(function () {
+    $('#loginForm').submit(function (e) {
+        e.preventDefault(); // Prevent form submission
+
+        $.ajax({
+            type: 'POST',
+            url: 'connect.php',
+            data: $('#loginForm').serialize(), // Serialize form data
+            success: function (response) {
+                $('#message').html('<div class="alert alert-success">' + response + '</div>'); // Display success message in div
+                $('#loginForm')[0].reset(); // Reset form fields
+                // Display alert
+                alert("Registration done");
+            },
+            error: function (xhr, status, error) {
+                $('#message').html('<div class="alert alert-danger">Error: ' + xhr.responseText + '</div>'); // Display error message in div
+            }
+        });
+    });
+});
+
+
 function changeAcounts() {
     activating('acounts');
     deactivating('search');
@@ -459,31 +481,6 @@ function LogInAndClear() {
     let d = document.getElementById('pass2');
     let message = document.getElementById('confirmMessage');
     let status = document.getElementById('status');
-
-    //data input in database 
-    var email = $('#email').val();
-    var username = $('#username').val();
-    var password = $('#password').val();
-
-    $.ajax({
-        type: 'POST',
-        url: 'connect.php',
-        data: {
-            email: email,
-            username: username,
-            password: password
-        },
-        success: function(response){
-            $('#message').html('<div class="alert alert-success">' + response + '</div>'); // Display success message in div
-            $('#registrationForm')[0].reset(); // Reset form fields
-            // Display alert
-            /*alert("Registration done");*/
-        },
-        error: function(xhr, status, error){
-            $('#message').html('<div class="alert alert-danger">Error: ' + xhr.responseText + '</div>'); // Display error message in div
-        }
-    });
-
 
     d.style.backgroundColor = null;
     message.style.color = null;
