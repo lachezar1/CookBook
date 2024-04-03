@@ -202,5 +202,7 @@ reqres упражнаване за апита
 
         -strelka na receptata dont care didnt ask; check
         -bug na lubimi dont care didnt ask; check
-        -alert na registraciq
+        -alert na registraciq; cehck
         -ne se sviva informaciqta dont care didnt ask; check
+        -mysql ne podyrva kirlica po default
+        -moje da pishehsh javaScript v php
