@@ -14,12 +14,12 @@ if ($conn->connect_error) {
     if ($stmt_result->num_rows > 0) {
         $data = $stmt_result->fetch_assoc();
         if($data['password'] === $password) {
-            //echo '<script>alert("Log in successfull");</script>';
+            echo 'success';
         } else {
-           // echo '<script>alert("Invalid Email or password");</script>';
+            echo 'error';
         }
     } else {
-        //echo '<script>alert("Invalid Email or password");</script>';
+        echo 'error';
     }
 }
 

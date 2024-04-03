@@ -133,45 +133,43 @@ var favRecipe = [];
 
 $(document).ready(function () {
     $('#registrationForm').submit(function (e) {
-        e.preventDefault(); // Prevent form submission
+        e.preventDefault(); 
 
         $.ajax({
             type: 'POST',
             url: 'connect.php',
-            data: $('#registrationForm').serialize(), // Serialize form data
+            data: $('#registrationForm').serialize(), 
             success: function (response) {
-                $('#message').html('<div class="alert alert-success">' + response + '</div>'); // Display success message in div
-                $('#registrationForm')[0].reset(); // Reset form fields
-                // Display alert
+                $('#message').html('<div class="alert alert-success">' + response + '</div>'); 
+                $('#registrationForm')[0].reset();
                 alert("Registration done");
             },
             error: function (xhr, status, error) {
-                $('#message').html('<div class="alert alert-danger">Error: ' + xhr.responseText + '</div>'); // Display error message in div
+                $('#message').html('<div class="alert alert-danger">Error: ' + xhr.responseText + '</div>');
             }
         });
     });
-});
-
-
-$(document).ready(function () {
-    $('#loginForm').submit(function (e) {
-        e.preventDefault(); // Prevent form submission
-
+    
+    $("#loginForm").submit(function(e){
+        e.preventDefault(); 
         $.ajax({
-            type: 'POST',
-            url: 'connect.php',
-            data: $('#loginForm').serialize(), // Serialize form data
-            success: function (response) {
-                $('#message').html('<div class="alert alert-success">' + response + '</div>'); // Display success message in div
-                $('#loginForm')[0].reset(); // Reset form fields
-                // Display alert
-                alert("Registration done");
-            },
-            error: function (xhr, status, error) {
-                $('#message').html('<div class="alert alert-danger">Error: ' + xhr.responseText + '</div>'); // Display error message in div
+            type: "POST",
+            url: "register.php", 
+            data: $(this).serialize(),
+            success: function(response){
+                $('#loginForm')[0].reset();
+                if(response === 'success'){
+                    alert("Logged in successfully");
+                } else {
+                    alert("Invalid email or password");
+                }
             }
         });
     });
+
+
+
+
 });
 
 
