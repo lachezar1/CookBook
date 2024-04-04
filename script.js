@@ -131,6 +131,23 @@ var list = [];
 var favRecipe = [];
 
 
+function fetchRecipes() {
+    fetch('get_recipes.php') // Corrected filename
+        .then(response => response.json())
+        .then(data => {
+            // Store the fetched recipes in a variable
+            var recipesTRY = data;
+            
+            // Now you can work with the 'recipes' array
+            console.log(recipesTRY);
+        })
+        .catch(error => console.error('Error fetching recipes:', error));
+}
+
+// Call the fetchRecipes function when the page loads
+document.addEventListener('DOMContentLoaded', fetchRecipes);
+console.log(recipesTRY);
+
 $(document).ready(function () {
     $('#registrationForm').submit(function (e) {
         e.preventDefault(); 
@@ -167,9 +184,7 @@ $(document).ready(function () {
         });
     });
 
-
-
-
+    
 });
 
 

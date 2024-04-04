@@ -198,11 +198,30 @@ reqres упражнаване за апита
 
         https://bootsnipp.com/snippets/8ANqZ validation
 
-        background image cupcake i taka natatyk
+        var recipes = [
+    {
+        "id": 0,
+        "name": "somehing",
+        "image": "path",
+        "tag": "tag",
+        "howTo": "somehing",
+        "ingredientsTM": "somehing",
+        "video": "link"
+    }];
+
+    ALTER DATABASE culinary CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+    ALTER TABLE users CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+
+
+        background image cupcake i taka natatyk; scraped
 
         -strelka na receptata dont care didnt ask; check
         -bug na lubimi dont care didnt ask; check
         -alert na registraciq; cehck
         -ne se sviva informaciqta dont care didnt ask; check
-        -mysql ne podyrva kirlica po default
+        -mysql ne podyrva kirlica po default; check
         -moje da pishehsh javaScript v php
+
+
