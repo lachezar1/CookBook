@@ -129,14 +129,14 @@ var object_id;
 var loaded = false;
 var list = [];
 var favRecipe = [];
-
+var recipesTRY = [];
 
 function fetchRecipes() {
     fetch('get_recipes.php') // Corrected filename
         .then(response => response.json())
         .then(data => {
             // Store the fetched recipes in a variable
-            var recipesTRY = data;
+             recipesTRY = data;
             
             // Now you can work with the 'recipes' array
             console.log(recipesTRY);
