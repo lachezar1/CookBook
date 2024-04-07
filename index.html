@@ -545,32 +545,44 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label d-flex justify-content-center">Име на
-                            рецептата:</label>
-                        <input type="text" class="form-control" id="recepi-name">
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <canvas id="leftcan"></canvas>
-                    </div>
-                    <div class="d-flex justify-content-center pt-3">
-                        <input type="file" multiple="false" accept="image/*" id="imagefile" onchange="upload()">
-                    </div>
-                    <form>
+                    <form enctype="multipart/form-data" id="insertForm">
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label d-flex justify-content-center">Име на
+                                рецептата:</label>
+                            <input type="text" class="form-control" id="recepi-name" name="recipe_name">
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <canvas id="leftcan"></canvas>
+                        </div>
+                        <div class="d-flex justify-content-center pt-3">
+                            <input type="file" multiple="false" accept="image/*" id="imagefile" name="recipe_image"
+                                onchange="upload()">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Категория:</label>
+                            <input type="text" class="form-control" id="category-name" name="tag">
+                        </div>
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Съставки:</label>
-                            <input type="text" class="form-control" id="recipient-name">
+                            <input type="text" class="form-control" id="ingrediants-name" name="ingredients">
                         </div>
                         <div class="mb-3">
                             <label for="message-text" class="col-form-label">Начин на приготвяне:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
+                            <input type="text" class="form-control" id="HowTo" name="how_to">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Видео:</label>
+                            <input type="text" class="form-control" id="video" name="video">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Затвори</button>
+                            <button type="submit" class="btn btn-success" onclick="addRecipe()">Създай</button>
                         </div>
                     </form>
+
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Затвори</button>
-                    <button type="button" class="btn btn-success">Създай</button>
-                </div>
+
             </div>
         </div>
     </div>
@@ -705,7 +717,7 @@
                             onclick="LogInAndClear()">
                     </div>
                 </form>
-               
+
             </div>
 
             <div class="login-form d-none pb-5 pt-5 border border-dark border-top-0" id="logIn">

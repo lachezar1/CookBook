@@ -9,7 +9,7 @@ var acounts = [
 ];
 var recipes = [
     {
-        "id": 0,
+        "id": 1,
         "name": "Мусака",
         "image": "images/recepi/musaka.jpg",
         "tag": "основни",
@@ -18,7 +18,7 @@ var recipes = [
         "video": "https://www.youtube.com/watch?v=PMpzLbSaq_4"
     },
     {
-        "id": 1,
+        "id": 2,
         "name": "Торта Гараш",
         "image": "images/recepi/garash.jpg",
         "tag": "десерти",
@@ -27,7 +27,7 @@ var recipes = [
         "video": "https://www.youtube.com/watch?v=TQuz1tsaJq4"
     },
     {
-        "id": 2,
+        "id": 3,
         "name": "Картофи Соте",
         "image": "images/recepi/sote.jpg",
         "tag": "основни",
@@ -36,7 +36,7 @@ var recipes = [
         "video": ""
     },
     {
-        "id": 3,
+        "id": 4,
         "name": "Пилешки крилца на фурна",
         "image": "images/recepi/krilca.jpg",
         "tag": "основни",
@@ -45,7 +45,7 @@ var recipes = [
         "video": ""
     },
     {
-        "id": 4,
+        "id": 5,
         "name": "Баница",
         "image": "images/recepi/banitsa.jpg",
         "tag": "закуски",
@@ -54,70 +54,70 @@ var recipes = [
         "video": ""
     },
     {
-        "id": 5,
+        "id": 6,
         "name": "Студен билков чай",
         "image": "images/recepi/StudenChai.jpg",
         "tag": "напитки",
         "video": ""
     },
     {
-        "id": 6,
+        "id": 7,
         "name": "Бял горещ шоколад",
         "image": "images/recepi/BqlShokolat.jpg",
         "tag": "напитки",
         "video": ""
     },
     {
-        "id": 7,
+        "id": 8,
         "name": "Овчарска салата",
         "image": "images/recepi/ofcharska.jpg",
         "tag": "салати",
         "video": ""
     },
     {
-        "id": 8,
+        "id": 9,
         "name": "Зелена салата",
         "image": "images/recepi/zelena.jpg",
         "tag": "салати",
         "video": ""
     },
     {
-        "id": 9,
+        "id": 10,
         "name": "Шоколадов кекс",
         "image": "images/recepi/keks.jpg",
         "tag": "десерти",
         "video": ""
     },
     {
-        "id": 10,
+        "id": 11,
         "name": "Шоколадови бисквити",
         "image": "images/recepi/biskviti.jpg",
         "tag": "десерти",
         "video": ""
     },
     {
-        "id": 11,
+        "id": 12,
         "name": "Палачинки",
         "image": "images/recepi/palachinki.jpg",
         "tag": "закуски",
         "video": ""
     },
     {
-        "id": 12,
+        "id": 13,
         "name": "Хляб",
         "image": "images/recepi/hlqb.jpg",
         "tag": "закуски",
         "video": ""
     },
     {
-        "id": 13,
+        "id": 14,
         "name": "Пилешка супа",
         "image": "images/recepi/pileshka.jpg",
         "tag": "супи",
         "video": ""
     },
     {
-        "id": 14,
+        "id": 15,
         "name": "Копривена супа",
         "image": "images/recepi/koprivena.jpg",
         "tag": "супи",
@@ -136,28 +136,74 @@ function fetchRecipes() {
         .then(response => response.json())
         .then(data => {
             // Store the fetched recipes in a variable
-             recipesTRY = data;
-            
+            recipesTRY = data;
+
             // Now you can work with the 'recipes' array
+            let recipe = document.getElementById('allContainer');
+
+            let length = recipesTRY.length;
+            for (let i = 0; i < length; i++) {
+                let all_div1 = document.createElement("div");
+                all_div1.classList.add("col", "px-4");
+                all_div1.setAttribute("id", recipesTRY[i].id);
+                recipe.appendChild(all_div1);
+
+                let all_div2 = document.createElement("div");
+                all_div2.classList.add("card", "h-100", "border", "border-success-subtle");
+                all_div2.onmouseover = function () {
+                    all_div2.style.boxShadow = "0 .5rem 1rem #1E4847";
+                    all_div2.style.borderStyle = "hidden";
+                    all_div2.style.transitionDuration = "0.75s";
+                }
+
+                all_div2.onmouseleave = function () {
+                    all_div2.style.boxShadow = "none";
+                    all_div2.borderStyle = "solid";
+                    all_div2.transitionDuration = "0.75s";
+                }
+                all_div1.appendChild(all_div2);
+
+                let all_image = document.createElement("img");
+                all_image.classList.add("card-img-top");
+                all_image.src = recipesTRY[i].image;
+                all_div2.appendChild(all_image);
+
+                let all_div3 = document.createElement("div");
+                all_div3.classList.add("card-body");
+                all_div3.style.backgroundColor = "#A0E8AF";
+                all_div2.appendChild(all_div3);
+
+                let all_h = document.createElement("h5");
+                all_h.classList.add("card-title");
+                all_h.innerText = recipesTRY[i].name;
+                all_div3.appendChild(all_h);
+
+                all_div1.addEventListener("click", function () {
+                    object_id = i;
+                    console.log(object_id);
+                    openOffCanva();
+                });
+
+            }
             console.log(recipesTRY);
         })
         .catch(error => console.error('Error fetching recipes:', error));
 }
 
 // Call the fetchRecipes function when the page loads
-document.addEventListener('DOMContentLoaded', fetchRecipes);
-console.log(recipesTRY);
+//document.addEventListener('DOMContentLoaded', fetchRecipes);
+
 
 $(document).ready(function () {
     $('#registrationForm').submit(function (e) {
-        e.preventDefault(); 
+        e.preventDefault();
 
         $.ajax({
             type: 'POST',
             url: 'connect.php',
-            data: $('#registrationForm').serialize(), 
+            data: $('#registrationForm').serialize(),
             success: function (response) {
-                $('#message').html('<div class="alert alert-success">' + response + '</div>'); 
+                $('#message').html('<div class="alert alert-success">' + response + '</div>');
                 $('#registrationForm')[0].reset();
                 alert("Registration done");
             },
@@ -166,16 +212,16 @@ $(document).ready(function () {
             }
         });
     });
-    
-    $("#loginForm").submit(function(e){
-        e.preventDefault(); 
+
+    $("#loginForm").submit(function (e) {
+        e.preventDefault();
         $.ajax({
             type: "POST",
-            url: "register.php", 
+            url: "register.php",
             data: $(this).serialize(),
-            success: function(response){
+            success: function (response) {
                 $('#loginForm')[0].reset();
-                if(response === 'success'){
+                if (response === 'success') {
                     alert("Logged in successfully");
                 } else {
                     alert("Invalid email or password");
@@ -184,7 +230,24 @@ $(document).ready(function () {
         });
     });
 
-    
+    // $("#insertForm").submit(function(e){
+    //     e.preventDefault(); 
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "add_recipe.php", 
+    //         data: $(this).serialize(),
+    //         success: function(response){
+    //             $('#insertForm')[0].reset();
+    //             if(response === 'Recipe added successfully.'){
+    //                 alert("Recipe added successfully");
+    //             } else {
+    //                 alert("Sorry, there was an error uploading your file");
+    //             }
+    //         }
+    //     });
+    // });
+
+
 });
 
 
@@ -217,8 +280,19 @@ function changeSearch() {
     let d = document.getElementById('favePage');
     d.classList.add("d-none");
 
+    deactivatingF('osn');
+    deactivatingF('zak');
+    deactivatingF('sal');
+    deactivatingF('des');
+    deactivatingF('sup');
+    deactivatingF('nap');
+    deactivatingF('veg');
+    deactivatingF('vegAr');
+    deactivatingF('mor');
+    deactivatingF('keto');
+
     if (loaded == false) {
-        Load();
+        fetchRecipes();
         loaded = true;
     }
 
@@ -238,16 +312,7 @@ function changeSearch() {
         }
 
     }
-    deactivatingF('osn');
-    deactivatingF('zak');
-    deactivatingF('sal');
-    deactivatingF('des');
-    deactivatingF('sup');
-    deactivatingF('nap');
-    deactivatingF('veg');
-    deactivatingF('vegAr');
-    deactivatingF('mor');
-    deactivatingF('keto');
+   
 
 }
 
@@ -430,6 +495,27 @@ function deactivatingF(btn) {
     a.classList.remove("btn-outline-success");
 }
 
+function addRecipe() {
+    var formData = new FormData($('#insertForm')[0]);
+    $.ajax({
+        url: 'add_recipe.php',
+        type: 'POST',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            // Display alert with response message
+            alert(response);
+            // Reset form after successful submission (optional)
+            $('#insertForm')[0].reset();
+        },
+        error: function (xhr, status, error) {
+            // Display error message if request fails
+            alert('An error occurred while adding the recipe: ' + error);
+        }
+    });
+}
+
 function checkPass() {
     var pass1 = document.getElementById('password');
     var pass2 = document.getElementById('pass2');
@@ -500,72 +586,72 @@ function LogInAndClear() {
     message.innerHTML = '';
     status.innerHTML = '';
 }
-function Load() {
-    let recipe = document.getElementById('allContainer');
+// function Load() {
+//     let recipe = document.getElementById('allContainer');
 
-    let length = recipes.length;
-    for (let i = 0; i < length; i++) {
-        let all_div1 = document.createElement("div");
-        all_div1.classList.add("col", "px-4");
-        all_div1.setAttribute("id", recipes[i].id);
-        recipe.appendChild(all_div1);
+//     let length = recipes.length;
+//     for (let i = 0; i < length; i++) {
+//         let all_div1 = document.createElement("div");
+//         all_div1.classList.add("col", "px-4");
+//         all_div1.setAttribute("id", recipes[i].id);
+//         recipe.appendChild(all_div1);
 
-        let all_div2 = document.createElement("div");
-        all_div2.classList.add("card", "h-100", "border", "border-success-subtle");
-        all_div2.onmouseover = function () {
-            all_div2.style.boxShadow = "0 .5rem 1rem #1E4847";
-            all_div2.style.borderStyle = "hidden";
-            all_div2.style.transitionDuration = "0.75s";
-        }
+//         let all_div2 = document.createElement("div");
+//         all_div2.classList.add("card", "h-100", "border", "border-success-subtle");
+//         all_div2.onmouseover = function () {
+//             all_div2.style.boxShadow = "0 .5rem 1rem #1E4847";
+//             all_div2.style.borderStyle = "hidden";
+//             all_div2.style.transitionDuration = "0.75s";
+//         }
 
-        all_div2.onmouseleave = function () {
-            all_div2.style.boxShadow = "none";
-            all_div2.borderStyle = "solid";
-            all_div2.transitionDuration = "0.75s";
-        }
-        all_div1.appendChild(all_div2);
+//         all_div2.onmouseleave = function () {
+//             all_div2.style.boxShadow = "none";
+//             all_div2.borderStyle = "solid";
+//             all_div2.transitionDuration = "0.75s";
+//         }
+//         all_div1.appendChild(all_div2);
 
-        let all_image = document.createElement("img");
-        all_image.classList.add("card-img-top");
-        all_image.src = recipes[i].image;
-        all_div2.appendChild(all_image);
+//         let all_image = document.createElement("img");
+//         all_image.classList.add("card-img-top");
+//         all_image.src = recipes[i].image;
+//         all_div2.appendChild(all_image);
 
-        let all_div3 = document.createElement("div");
-        all_div3.classList.add("card-body");
-        all_div3.style.backgroundColor = "#A0E8AF";
-        all_div2.appendChild(all_div3);
+//         let all_div3 = document.createElement("div");
+//         all_div3.classList.add("card-body");
+//         all_div3.style.backgroundColor = "#A0E8AF";
+//         all_div2.appendChild(all_div3);
 
-        let all_h = document.createElement("h5");
-        all_h.classList.add("card-title");
-        all_h.innerText = recipes[i].name;
-        all_div3.appendChild(all_h);
+//         let all_h = document.createElement("h5");
+//         all_h.classList.add("card-title");
+//         all_h.innerText = recipes[i].name;
+//         all_div3.appendChild(all_h);
 
-        all_div1.addEventListener("click", function () {
-            object_id = i;
-            console.log(object_id);
-            openOffCanva();
-        });
+//         all_div1.addEventListener("click", function () {
+//             object_id = i;
+//             console.log(object_id);
+//             openOffCanva();
+//         });
 
-    }
-    /*let Button = document.getElementById('FaveBtn');
-    Button.addEventListener("click", function () {
-        list.push({ object_id });
-        console.log(object_id);
-    });*/
+//     }
+//     /*let Button = document.getElementById('FaveBtn');
+//     Button.addEventListener("click", function () {
+//         list.push({ object_id });
+//         console.log(object_id);
+//     });*/
 
-}
+// }
 function FilterDes() {
 
     let recipe = document.getElementById('allContainer');
 
-    let length = recipes.length;
+    let length = recipesTRY.length;
 
     let emp = document.getElementById('empty');
     emp.classList.add("d-none");
     let br;
 
     for (let i = 0; i < length; i++) {
-        let check = document.getElementById(recipes[i].id);
+        let check = document.getElementById(recipesTRY[i].id);
         if (check.classList.contains('d-none')) {
             check.classList.remove("d-none");
         }
@@ -573,8 +659,8 @@ function FilterDes() {
     }
 
     for (let i = 0; i < length; i++) {
-        let test = document.getElementById(recipes[i].id);
-        if (recipes[i].tag != "десерти") {
+        let test = document.getElementById(recipesTRY[i].id);
+        if (recipesTRY[i].tag != "десерти") {
             test.classList.add("d-none");
             br++;
         }
@@ -601,14 +687,14 @@ function FilterOsn() {
 
     let recipe = document.getElementById('allContainer');
 
-    let length = recipes.length;
+    let length = recipesTRY.length;
 
     let emp = document.getElementById('empty');
     emp.classList.add("d-none");
     let br;
 
     for (let i = 0; i < length; i++) {
-        let check = document.getElementById(recipes[i].id);
+        let check = document.getElementById(recipesTRY[i].id);
         if (check.classList.contains('d-none')) {
             check.classList.remove("d-none");
         }
@@ -616,8 +702,8 @@ function FilterOsn() {
     }
 
     for (let i = 0; i < length; i++) {
-        let test = document.getElementById(recipes[i].id);
-        if (recipes[i].tag != "основни") {
+        let test = document.getElementById(recipesTRY[i].id);
+        if (recipesTRY[i].tag != "основни") {
             test.classList.add("d-none");
             br++;
         }
@@ -643,14 +729,14 @@ function FilterZaks() {
 
     let recipe = document.getElementById('allContainer');
 
-    let length = recipes.length;
+    let length = recipesTRY.length;
 
     let emp = document.getElementById('empty');
     emp.classList.add("d-none");
     let br;
 
     for (let i = 0; i < length; i++) {
-        let check = document.getElementById(recipes[i].id);
+        let check = document.getElementById(recipesTRY[i].id);
         if (check.classList.contains('d-none')) {
             check.classList.remove("d-none");
         }
@@ -658,8 +744,8 @@ function FilterZaks() {
     }
 
     for (let i = 0; i < length; i++) {
-        let test = document.getElementById(recipes[i].id);
-        if (recipes[i].tag != "закуски") {
+        let test = document.getElementById(recipesTRY[i].id);
+        if (recipesTRY[i].tag != "закуски") {
             test.classList.add("d-none");
             br++;
         }
@@ -684,14 +770,14 @@ function FilterSal() {
 
     let recipe = document.getElementById('allContainer');
 
-    let length = recipes.length;
+    let length = recipesTRY.length;
 
     let emp = document.getElementById('empty');
     emp.classList.add("d-none");
     let br;
 
     for (let i = 0; i < length; i++) {
-        let check = document.getElementById(recipes[i].id);
+        let check = document.getElementById(recipesTRY[i].id);
         if (check.classList.contains('d-none')) {
             check.classList.remove("d-none");
         }
@@ -699,8 +785,8 @@ function FilterSal() {
     }
 
     for (let i = 0; i < length; i++) {
-        let test = document.getElementById(recipes[i].id);
-        if (recipes[i].tag != "салати") {
+        let test = document.getElementById(recipesTRY[i].id);
+        if (recipesTRY[i].tag != "салати") {
             test.classList.add("d-none");
             let emp = document.getElementById('empty');
             emp.classList.add("d-none");
@@ -727,14 +813,14 @@ function FilterSup() {
 
     let recipe = document.getElementById('allContainer');
 
-    let length = recipes.length;
+    let length = recipesTRY.length;
 
     let emp = document.getElementById('empty');
     emp.classList.add("d-none");
     let br;
 
     for (let i = 0; i < length; i++) {
-        let check = document.getElementById(recipes[i].id);
+        let check = document.getElementById(recipesTRY[i].id);
         if (check.classList.contains('d-none')) {
             check.classList.remove("d-none");
         }
@@ -742,8 +828,8 @@ function FilterSup() {
     }
 
     for (let i = 0; i < length; i++) {
-        let test = document.getElementById(recipes[i].id);
-        if (recipes[i].tag != "супи") {
+        let test = document.getElementById(recipesTRY[i].id);
+        if (recipesTRY[i].tag != "супи") {
             test.classList.add("d-none");
             br++;
         }
@@ -769,14 +855,14 @@ function FilterNap() {
 
     let recipe = document.getElementById('allContainer');
 
-    let length = recipes.length;
+    let length = recipesTRY.length;
 
     let emp = document.getElementById('empty');
     emp.classList.add("d-none");
     let br;
 
     for (let i = 0; i < length; i++) {
-        let check = document.getElementById(recipes[i].id);
+        let check = document.getElementById(recipesTRY[i].id);
         if (check.classList.contains('d-none')) {
             check.classList.remove("d-none");
         }
@@ -786,7 +872,7 @@ function FilterNap() {
 
     for (let i = 0; i < length; i++) {
         let test = document.getElementById(recipes[i].id);
-        if (recipes[i].tag != "напитки") {
+        if (recipesTRY[i].tag != "напитки") {
             test.classList.add("d-none");
             br++;
         }
@@ -810,14 +896,14 @@ function FilterNap() {
 function FilterVeg() {
     let recipe = document.getElementById('allContainer');
 
-    let length = recipes.length;
+    let length = recipesTRY.length;
     var br = 0;
 
     let emp = document.getElementById('empty');
     emp.classList.add("d-none");
 
     for (let i = 0; i < length; i++) {
-        let check = document.getElementById(recipes[i].id);
+        let check = document.getElementById(recipesTRY[i].id);
         if (check.classList.contains('d-none')) {
             check.classList.remove("d-none");
         }
@@ -825,8 +911,8 @@ function FilterVeg() {
     }
 
     for (let i = 0; i < length; i++) {
-        let test = document.getElementById(recipes[i].id);
-        if (recipes[i].tag != "веган") {
+        let test = document.getElementById(recipesTRY[i].id);
+        if (recipesTRY[i].tag != "веган") {
             test.classList.add("d-none");
             br++;
         }
@@ -851,14 +937,14 @@ function FilterVeg() {
 function FilterVegAr() {
     let recipe = document.getElementById('allContainer');
 
-    let length = recipes.length;
+    let length = recipesTRY.length;
     var br = 0;
 
     let emp = document.getElementById('empty');
     emp.classList.add("d-none");
 
     for (let i = 0; i < length; i++) {
-        let check = document.getElementById(recipes[i].id);
+        let check = document.getElementById(recipesTRY[i].id);
         if (check.classList.contains('d-none')) {
             check.classList.remove("d-none");
         }
@@ -866,8 +952,8 @@ function FilterVegAr() {
     }
 
     for (let i = 0; i < length; i++) {
-        let test = document.getElementById(recipes[i].id);
-        if (recipes[i].tag != "вегетарянски") {
+        let test = document.getElementById(recipesTRY[i].id);
+        if (recipesTRY[i].tag != "вегетарянски") {
             test.classList.add("d-none");
             br++;
         }
@@ -892,14 +978,14 @@ function FilterVegAr() {
 function FilterMor() {
     let recipe = document.getElementById('allContainer');
 
-    let length = recipes.length;
+    let length = recipesTRY.length;
     var br = 0;
 
     let emp = document.getElementById('empty');
     emp.classList.add("d-none");
 
     for (let i = 0; i < length; i++) {
-        let check = document.getElementById(recipes[i].id);
+        let check = document.getElementById(recipesTRY[i].id);
         if (check.classList.contains('d-none')) {
             check.classList.remove("d-none");
         }
@@ -907,8 +993,8 @@ function FilterMor() {
     }
 
     for (let i = 0; i < length; i++) {
-        let test = document.getElementById(recipes[i].id);
-        if (recipes[i].tag != "морски") {
+        let test = document.getElementById(recipesTRY[i].id);
+        if (recipesTRY[i].tag != "морски") {
             test.classList.add("d-none");
             br++;
         }
@@ -933,14 +1019,14 @@ function FilterMor() {
 function FilterKeto() {
     let recipe = document.getElementById('allContainer');
 
-    let length = recipes.length;
+    let length = recipesTRY.length;
     var br = 0;
 
     let emp = document.getElementById('empty');
     emp.classList.add("d-none");
 
     for (let i = 0; i < length; i++) {
-        let check = document.getElementById(recipes[i].id);
+        let check = document.getElementById(recipesTRY[i].id);
         if (check.classList.contains('d-none')) {
             check.classList.remove("d-none");
         }
@@ -948,8 +1034,8 @@ function FilterKeto() {
     }
 
     for (let i = 0; i < length; i++) {
-        let test = document.getElementById(recipes[i].id);
-        if (recipes[i].tag != "кето") {
+        let test = document.getElementById(recipesTRY[i].id);
+        if (recipesTRY[i].tag != "кето") {
             test.classList.add("d-none");
             br++;
         }
@@ -983,9 +1069,9 @@ function openOffCanva() {
     page.classList.remove("overflow-y-auto");
 
     name_of_offcanva.innerText = recipes[object_id].name;
-    HowToRec.innerText = recipes[object_id].howTo;
-    image_of_offcanva.src = recipes[object_id].image;
-    ingredients.innerText = recipes[object_id].ingredientsTM;
+    HowToRec.innerText = recipesTRY[object_id].howTo;
+    image_of_offcanva.src = recipesTRY[object_id].image;
+    ingredients.innerText = recipesTRY[object_id].ingredientsTM;
 
 
 
@@ -1160,11 +1246,11 @@ var image;
 var leftcanvas;
 
 
-function upload(){
-  image = document.getElementById("imagefile");
-  leftcanvas = document.getElementById("leftcan");
-  rightcanvas = document.getElementById("rightcan");
-  image = new SimpleImage(image);
-  image.drawTo(leftcanvas);
+function upload() {
+    image = document.getElementById("imagefile");
+    leftcanvas = document.getElementById("leftcan");
+    rightcanvas = document.getElementById("rightcan");
+    image = new SimpleImage(image);
+    image.drawTo(leftcanvas);
 }
 
