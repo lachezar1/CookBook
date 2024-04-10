@@ -520,8 +520,8 @@
             </div>
             <div class="d-flex align-middle">
                 <div class="d-block">
-                    <p class="my-1">Name:</p>
-                    <p class="my-1">e-mail:</p>
+                    <p class="my-1" id="account_user">Name:</p>
+                    <p class="my-1"id="account_email">e-mail:</p>
                 </div>
             </div>
             <hr>
@@ -565,11 +565,11 @@
                         </div>
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Съставки:</label>
-                            <input type="text" class="form-control" id="ingrediants-name" name="ingredients">
+                            <textarea type="text" class="form-control" id="ingrediants-name" name="ingredients"></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="message-text" class="col-form-label">Начин на приготвяне:</label>
-                            <input type="text" class="form-control" id="HowTo" name="how_to">
+                            <textarea type="text" class="form-control" id="HowTo" name="how_to"></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="message-text" class="col-form-label">Видео:</label>
@@ -744,7 +744,7 @@
                         <span id="confirmMessage" class="confirmMessage"></span>
                     </div>
                     <div class="form-group pt-4">
-                        <input class="btn btn-success" type="submit" name="submit_reg" value="Log In">
+                        <input class="btn btn-success" type="submit" name="submit_reg" value="Log In" onclick="SaveInfo()">
                     </div>
                 </form>
                 <div class="d-none" id="message"></div>
@@ -944,7 +944,7 @@
                                         data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                                         aria-controls="panelsStayOpen-collapseOne"
                                         style="background-color: #fff; color: #1E4847; border: solid 2px #1E4847;">
-                                        Съставки
+                                        Начин на приготвяне
                                     </button>
                                 </h2>
                                 <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
@@ -959,7 +959,7 @@
                                         data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
                                         aria-controls="panelsStayOpen-collapseTwo"
                                         style="background-color: #fff; color: #1E4847; border: solid 2px #1E4847;">
-                                        Начин на приготвяне
+                                        Съставки
                                     </button>
                                 </h2>
                                 <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
