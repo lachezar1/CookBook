@@ -493,7 +493,8 @@
                 onclick="changeSearch()" data-bs-dismiss="offcanvas" aria-label="Close">Търсачка
                 <i class="bi bi-search"></i></button>
             <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="writeNav"
-                onclick="changeWrite()" data-bs-dismiss="offcanvas" aria-label="Close">Запиши
+                onclick="changeWrite()" data-bs-toggle="modal"
+                data-bs-target="#staticBackdropCreate">Запиши
                 <i class="bi bi-pen"></i></button>
             <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="enterNav"
                 onclick="changeEnter()" data-bs-dismiss="offcanvas" aria-label="Close">Вход / Регистрация
@@ -520,8 +521,16 @@
             </div>
             <div class="d-flex align-middle">
                 <div class="d-block">
-                    <p class="my-1" id="account_user">Name:</p>
-                    <p class="my-1"id="account_email">e-mail:</p>
+                    <div class="d-flex">
+                        <p class="my-1">Name: </p>
+
+                        <p class="my-1 ps-3" id="account_user"></p>
+                    </div>
+                    <div class="d-flex">
+                        <p class="my-1">e-mail: </p>
+
+                        <p class="my-1 ps-3" id="account_email"></p>
+                    </div>
                 </div>
             </div>
             <hr>
@@ -531,7 +540,7 @@
                 информация</button>
             <button class="w-100 btn mx-2 my-1 btn-lg" style="color: #054727;"
                 onmouseover="this.style.backgroundColor = '#FFCF56'; this.style.color = '#054727';"
-                onmouseleave="this.style.backgroundColor = ''; this.style.color = '#054727';">Излез</button>
+                onmouseleave="this.style.backgroundColor = ''; this.style.color = '#054727';" onclick="LogOut()">Излез</button>
 
         </div>
     </div>
@@ -542,7 +551,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Нова рецепта</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="CloseCreate()"></button>
                 </div>
                 <div class="modal-body">
                     <form enctype="multipart/form-data" id="insertForm">
@@ -565,7 +574,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Съставки:</label>
-                            <textarea type="text" class="form-control" id="ingrediants-name" name="ingredients"></textarea>
+                            <textarea type="text" class="form-control" id="ingrediants-name"
+                                name="ingredients"></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="message-text" class="col-form-label">Начин на приготвяне:</label>
@@ -744,7 +754,8 @@
                         <span id="confirmMessage" class="confirmMessage"></span>
                     </div>
                     <div class="form-group pt-4">
-                        <input class="btn btn-success" type="submit" name="submit_reg" value="Log In" onclick="SaveInfo()">
+                        <input class="btn btn-success" type="submit" name="submit_reg" value="Log In"
+                            onclick="SaveInfo()">
                     </div>
                 </form>
                 <div class="d-none" id="message"></div>
@@ -976,25 +987,6 @@
     </div>
 
 
-    <!-- Modal -->
-    <!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
 
     <!--footer -->

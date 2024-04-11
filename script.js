@@ -133,7 +133,7 @@ var favRecipe = [];
 var recipesTRY = [];
 
 function fetchRecipes() {
-    fetch('get_recipes.php') 
+    fetch('get_recipes.php')
         .then(response => response.json())
         .then(data => {
             // запазват се извлечните данни в масива
@@ -229,55 +229,31 @@ $(document).ready(function () {
                 $('#loginForm')[0].reset();
                 if (response === 'success') {
                     alert("Logged in successfully");
+                    
                 } else {
                     alert("Invalid email or password");
                 }
+
             }
         });
     });
-
-    // $("#loginForm").submit(function (e) {
-    //     e.preventDefault();
-    //     $.ajax({
-    //         type: "POST",
-    //         url: "register.php",
-    //         data: $(this).serialize(),
-    //         success: function (response) {
-    //             $('#loginForm')[0].reset();
-    //             var data = JSON.parse(response);
-    //             if (data.status === 'success') {
-    //                 alert("Logged in successfully as " + data.name + " (" + data.email + ")");
-    //                 // Now you can use data.email and data.name as needed
-    //                 window.location.href = "dashboard.php"; // Redirect to dashboard or home page
-    //             } else {
-    //                 alert(data.message);
-    //             }
-    //         }
-    //     });
-    // });
-
-    
 
 
 });
 
 
-function SaveInfo(){
+function SaveInfo() {
+
     let username = document.getElementById('user').value;
     let email = document.getElementById('emailLog').value;
 
     localStorage.setItem('is_username', username);
-    localStorage.setItem('Is_eamil', email);
+    localStorage.setItem('is_email', email);
 
-    let acc_email = document.getElementById('accout_email');
-    let acc_user = document.getElementById('accout_user');
-
-    acc_email.innerText = email;
-    acc_user.innerText = username;
-
-
-
+    
 }
+
+
 
 function changeAcounts() {
     activating('acounts');
@@ -285,6 +261,9 @@ function changeAcounts() {
     deactivating('write');
     deactivating('enter');
     deactivating('favourite');
+
+    document.getElementById('account_user').textContent = localStorage.getItem('is_username');
+    document.getElementById('account_email').textContent = localStorage.getItem('is_email');
 
 }
 
@@ -340,7 +319,7 @@ function changeSearch() {
         }
 
     }
-   
+
 
 }
 
@@ -1161,10 +1140,10 @@ function LoadFave() {
             last_recepie = length;
         }
     }
-    else{
+    else {
         btn.classList.remove("d-none");
     }
-    
+
 }
 
 function CloseAcc() {
@@ -1181,6 +1160,29 @@ function CloseAcc() {
     accNav.style.color = null;
     accNav.classList.add("btn-success");
     accNav.classList.remove("btn-outline-success");
+}
+
+function CloseCreate() {
+    let acc = document.getElementById('write');
+
+    acc.style.backgroundColor = null;
+    acc.style.color = null;
+    acc.classList.add("btn-success");
+    acc.classList.remove("btn-outline-success");
+
+    let accNav = document.getElementById('writeNav');
+
+    accNav.style.backgroundColor = null;
+    accNav.style.color = null;
+    accNav.classList.add("btn-success");
+    accNav.classList.remove("btn-outline-success");
+}
+
+function LogOut(){
+    localStorage.removeItem("is_username");
+    localStorage.removeItem("is_email");
+    document.getElementById('account_user').textContent = "";
+    document.getElementById('account_email').textContent = "";
 }
 
 var image;
