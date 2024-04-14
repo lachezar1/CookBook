@@ -7,14 +7,15 @@ $conn = new mysqli('localhost', 'root', '', 'culinary');
 if ($conn->connect_error) {
     die('Connection Failed: ' . $conn->connect_error);
 } else { 
-    $stmt = $conn->prepare('select * from users where email = ?');
+    $stmt = $conn->prepare('select id, password from users where email = ?');
     $stmt->bind_param('s', $email);
     $stmt->execute();
     $stmt_result = $stmt->get_result();
     if ($stmt_result->num_rows > 0) {
         $data = $stmt_result->fetch_assoc();
         if($data['password'] === $password) {
-            echo 'success';
+            // Return success message along with the user ID
+            echo json_encode(array("status" => "success", "id" => $data['id']));
         } else {
             echo 'error';
         }

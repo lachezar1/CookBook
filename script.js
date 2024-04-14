@@ -183,12 +183,14 @@ function fetchRecipes() {
                 all_div1.addEventListener("click", function () {
                     //запазва се id-то на конкретната рецепта  
                     object_id = i;
-                    console.log(object_id);
                     openOffCanva();
                 });
 
             }
+
             console.log(recipesTRY);
+            checkUserIDInLocalStorage();
+            Last3();
         })
         //проверка за грешки
         .catch(error => console.error('Error fetching recipes:', error));
@@ -196,7 +198,65 @@ function fetchRecipes() {
 
 // Call the fetchRecipes function when the page loads
 //document.addEventListener('DOMContentLoaded', fetchRecipes);
+function Last3() {
+    console.log(recipesTRY);
+    let length = recipesTRY.length;
+    
+    let cont = document.getElementById('top3Con');
 
+    
+    for (let i = 0; i < length; i++) {
+        if (i==length-2 ||i==length-1||i==length-3) {
+            let all_div1 = document.createElement("div");
+            all_div1.classList.add("col", "px-4");
+            //all_div1.setAttribute("id", recipesTRY[i].id);
+            cont.appendChild(all_div1);
+
+            let all_div2 = document.createElement("div");
+            all_div2.classList.add("card", "h-100", "border", "border-success-subtle");
+            all_div2.onmouseover = function () {
+                all_div2.style.boxShadow = "0 .5rem 1rem #1E4847";
+                all_div2.style.borderStyle = "hidden";
+                all_div2.style.transitionDuration = "0.75s";
+            }
+
+            all_div2.onmouseleave = function () {
+                all_div2.style.boxShadow = "none";
+                all_div2.borderStyle = "solid";
+                all_div2.transitionDuration = "0.75s";
+            }
+            all_div1.appendChild(all_div2);
+
+            let all_image = document.createElement("img");
+            all_image.classList.add("card-img-top");
+            all_image.src = recipesTRY[i].image;
+            all_div2.appendChild(all_image);
+
+            let all_div3 = document.createElement("div");
+            all_div3.classList.add("card-body");
+            all_div3.style.backgroundColor = "#A0E8AF";
+            all_div2.appendChild(all_div3);
+
+            let all_h = document.createElement("h5");
+            all_h.classList.add("card-title");
+            all_h.innerText = recipesTRY[i].name;
+            all_div3.appendChild(all_h);
+
+            all_div1.addEventListener("click", function () {
+                //запазва се id-то на конкретната рецепта  
+                object_id = i;
+                console.log(object_id);
+                openOffCanva();
+            });
+           
+        }
+
+    }
+
+
+
+
+}
 
 $(document).ready(function () {
     $('#registrationForm').submit(function (e) {
@@ -227,13 +287,23 @@ $(document).ready(function () {
             data: $(this).serialize(),
             success: function (response) {
                 $('#loginForm')[0].reset();
-                if (response === 'success') {
+
+                var jsonResponse = JSON.parse(response);
+                if (jsonResponse.status === 'success') {
+
+                    var userId = jsonResponse.id;
+
+
+                    localStorage.setItem('userId', userId);
+
+                    let a = document.getElementById('favourite');
+                    a.classList.remove("d-none");
+
                     alert("Logged in successfully");
-                    
+                    checkUserIDInLocalStorage();
                 } else {
                     alert("Invalid email or password");
                 }
-
             }
         });
     });
@@ -250,9 +320,111 @@ function SaveInfo() {
     localStorage.setItem('is_username', username);
     localStorage.setItem('is_email', email);
 
-    
+
 }
 
+// Define the function
+function checkUserIDInLocalStorage() {
+
+    var userID = localStorage.getItem('userId');
+    if (userID) {
+
+
+        console.log("User ID found in localStorage:", userID);
+        // Here you can perform any actions you need when the userID is present
+        $.ajax({
+            type: "POST",
+            url: "fetch_favorites.php", // Change this to the appropriate PHP script URL
+            data: { userID: userID },
+            success: function (response) {
+                // Parse the response as JSON
+
+                var favorites = JSON.parse(response);
+
+
+                // Log the fetched favorites to the console
+                console.log("Favorite recipes fetched successfully:", favorites);
+                console.log(recipesTRY);
+                // Now you can use the 'favorites' array as needed
+                // For example, update the UI to display the fetched favorites
+                console.log(favorites);
+                let a = document.getElementById('favourite');
+                a.classList.remove("d-none");
+
+                let recipe = document.getElementById('FaveContainer');
+                let length = favorites.length;
+                let btn = document.getElementById('emptyFav');
+                btn.classList.add("d-none");
+
+                if (length > 1) {
+
+                    for (let i = 0; i < length; i++) {
+                        let all_div1 = document.createElement("div");
+                        all_div1.classList.add("col", "px-4");
+                        //all_div1.setAttribute("id", recipesTRY[favorites[i]].id);
+                        recipe.appendChild(all_div1);
+                        //console.log(current);
+
+                        let all_div2 = document.createElement("div");
+                        all_div2.classList.add("card", "h-100", "border", "border-success-subtle");
+                        all_div2.onmouseover = function () {
+                            all_div2.style.boxShadow = "0 .5rem 1rem #1E4847";
+                            all_div2.style.borderStyle = "hidden";
+                            all_div2.style.transitionDuration = "0.75s";
+                        }
+
+                        all_div2.onmouseleave = function () {
+                            all_div2.style.boxShadow = "none";
+                            all_div2.borderStyle = "solid";
+                            all_div2.transitionDuration = "0.75s";
+                        }
+                        all_div1.appendChild(all_div2);
+
+                        let all_image = document.createElement("img");
+                        all_image.classList.add("card-img-top");
+                        all_image.src = recipesTRY[[favorites[i]]].image;
+                        all_div2.appendChild(all_image);
+
+                        let all_div3 = document.createElement("div");
+                        all_div3.classList.add("card-body");
+                        all_div3.style.backgroundColor = "#A0E8AF";
+                        all_div2.appendChild(all_div3);
+
+                        let all_h = document.createElement("h5");
+                        all_h.classList.add("card-title");
+                        all_h.innerText = recipesTRY[favorites[i]].name;
+                        all_div3.appendChild(all_h);
+
+                        all_div1.addEventListener("click", function () {
+                            object_id = favorites[i];
+                            openOffCanva();
+                        });
+                        // console.log(current)
+
+                    }
+                }
+                else {
+                    btn.classList.remove('d-none');
+                }
+
+
+            },
+            error: function (xhr, status, error) {
+                console.error("Error fetching favorites:", error);
+            }
+        });
+        return true; // Return true if userID is found
+    } else {
+        console.log("User ID not found in localStorage");
+        return false; // Return false if userID is not found
+    }
+}
+
+// Call the function when the page is loaded
+window.onload = function () {
+    fetchRecipes();
+
+};
 
 
 function changeAcounts() {
@@ -299,7 +471,7 @@ function changeSearch() {
     deactivatingF('keto');
 
     if (loaded == false) {
-        fetchRecipes();
+        // fetchRecipes();
         loaded = true;
     }
 
@@ -373,6 +545,23 @@ function changeFave() {
 
     let d = document.getElementById('favePage');
     d.classList.remove("d-none");
+
+
+    var userID = localStorage.getItem('userId');
+    console.log(userID);
+    console.log(list);
+    $.ajax({
+        type: "POST",
+        url: "fave.php",
+        data: { userID: userID, favorites: list },
+        success: function (response) {
+            console.log("Favorites saved successfully");
+        },
+        error: function (xhr, status, error) {
+            console.error("Error:", error);
+        }
+    });
+
 
     LoadFave();
 
@@ -1092,7 +1281,7 @@ function LoadFave() {
     btn.classList.add("d-none");
     //console.log(length);
 
-    if (list[0] != null) {
+    if (list[0] != null || favorites.length > 2) {
         for (let i = last_recepie; i < length; i++) {
             let all_div1 = document.createElement("div");
             all_div1.classList.add("col", "px-4");
@@ -1178,11 +1367,16 @@ function CloseCreate() {
     accNav.classList.remove("btn-outline-success");
 }
 
-function LogOut(){
+function LogOut() {
     localStorage.removeItem("is_username");
     localStorage.removeItem("is_email");
+    localStorage.removeItem("userId");
     document.getElementById('account_user').textContent = "";
     document.getElementById('account_email').textContent = "";
+    let a = document.getElementById('favourite');
+    a.classList.add("d-none");
+    changeHome();
+    location.reload();
 }
 
 var image;

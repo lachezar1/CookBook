@@ -450,7 +450,7 @@
         </div>
         <div class="pe-md-5 m-3 d-flex align-items-center">
             <div class="d-md-inline d-none">
-                <button class="btn btn-success mx-2 btn-lg" type="button" id="search" onclick="changeSearch()">Търсачка
+                <button class="btn btn-success mx-2 btn-lg" type="button" id="search" onclick="changeSearch()">Рецепти
                     <i class="bi bi-search"></i>
                 </button>
                 <button class="btn btn-success mx-2 btn-lg" data-bs-toggle="modal"
@@ -461,7 +461,7 @@
                     Регистрация
                     <i class="bi bi-key"></i>
                 </button>
-                <button class=" btn btn-success mx-2 btn-lg" type="button" id="favourite" onclick="changeFave()">Любими
+                <button class=" btn btn-success mx-2 btn-lg d-none" type="button" id="favourite" onclick="changeFave()">Любими
                     <i class="bi bi-bookmark"></i>
                 </button>
                 <button class="btn btn-success mx-2 btn-lg" type="button" id="acounts" data-bs-toggle="offcanvas"
@@ -490,7 +490,7 @@
         </div>
         <div class="offcanvas-body d-flex flex-column" style="background-color:#ffff ;">
             <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="searchNav"
-                onclick="changeSearch()" data-bs-dismiss="offcanvas" aria-label="Close">Търсачка
+                onclick="changeSearch()" data-bs-dismiss="offcanvas" aria-label="Close">Рецепти
                 <i class="bi bi-search"></i></button>
             <button class="btn btn-success mx-5 my-2 btn-lg break-word" type="button" id="writeNav"
                 onclick="changeWrite()" data-bs-toggle="modal"
@@ -534,10 +534,6 @@
                 </div>
             </div>
             <hr>
-            <button class="w-100 btn mx-2 my-1 btn-lg" style="color: #054727;"
-                onmouseover="this.style.backgroundColor = '#FFCF56'; this.style.color = '#054727';"
-                onmouseleave="this.style.backgroundColor = ''; this.style.color = '#054727';">Промени
-                информация</button>
             <button class="w-100 btn mx-2 my-1 btn-lg" style="color: #054727;"
                 onmouseover="this.style.backgroundColor = '#FFCF56'; this.style.color = '#054727';"
                 onmouseleave="this.style.backgroundColor = ''; this.style.color = '#054727';" onclick="LogOut()">Излез</button>
@@ -651,37 +647,8 @@
             </div>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-3 g-4 pb-5 pt-5">
-            <div class="col px-4">
-                <div class="card h-100 border border-success-subtle"
-                    onmouseover=" this.style.boxShadow = '0 .5rem 1rem #1E4847'; this.style.borderStyle = 'hidden'; this.style.transitionDuration = '0.75s';"
-                    onmouseleave="this.style.boxShadow = 'none'; this.style.borderStyle = 'solid'; this.style.transitionDuration = '0.75s'">
-                    <img src="images/recepi/musaka.jpg" class="card-img-top" alt="...">
-                    <div class="card-body" style="background-color: #A0E8AF;">
-                        <h5 class="card-title">Мусака</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col  px-4">
-                <div class="card h-100 border border-success-subtle"
-                    onmouseover=" this.style.boxShadow = '0 .5rem 1rem #1E4847'; this.style.borderStyle = 'hidden'; this.style.transitionDuration = '0.75s';"
-                    onmouseleave="this.style.boxShadow = 'none'; this.style.borderStyle = 'solid'; this.style.transitionDuration = '0.75s'">
-                    <img src="images/recepi/garash.jpg" class="card-img-top" alt="...">
-                    <div class="card-body" style="background-color: #A0E8AF ;">
-                        <h5 class="card-title">Торта гараш</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col px-4">
-                <div class="card h-100 border border-success-subtle"
-                    onmouseover=" this.style.boxShadow = '0 .5rem 1rem #1E4847'; this.style.borderStyle = 'hidden'; this.style.transitionDuration = '0.75s';"
-                    onmouseleave="this.style.boxShadow = 'none'; this.style.borderStyle = 'solid'; this.style.transitionDuration = '0.75s'">
-                    <img src="images/recepi/sote.jpg" class="card-img-top" alt="...">
-                    <div class="card-body" style="background-color: #A0E8AF;">
-                        <h5 class="card-title">Картофи соте</h5>
-                    </div>
-                </div>
-            </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4 pb-5 pt-5" id="top3Con">
+            
         </div>
     </div>
 
@@ -766,7 +733,7 @@
 
     <div class="d-none" id="SearchPage">
         <!--search bar-->
-        <nav class="d-flex mb-5 mt-3">
+        <nav class="d-flex mb-5 mt-3 d-none">
             <div class="container-fluid">
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
